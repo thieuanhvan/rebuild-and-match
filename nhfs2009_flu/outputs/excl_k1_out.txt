@@ -1,0 +1,12 @@
+n excluded 3238 included 53418
+missing feature count: excluded mean 1.5095 included mean 1.2694
+either label missing: excluded 429 included 1
+label rate h1n1 excluded 0.2156 included 0.2131
+age_group {'65+ Years': 0.2899, '55 - 64 Years': 0.1933, '18 - 34 Years': 0.1917, '45 - 54 Years': 0.1852, '35 - 44 Years': 0.1395}
+race {'White': 0.7791, 'Black': 0.0889, 'Hispanic': 0.0713, 'Other or Multiple': 0.0605}
+sex {'Female': 0.5799, 'Male': 0.42}
+census_msa {'MSA, Not Principle  City': 0.4508, 'MSA, Principle City': 0.2887, 'Non-MSA': 0.2603}
+SAMP_DESIG excluded share by value (top) {'FC': 0.0572, 'FR': 0.0571}  zero-excluded values: 0
+LANGUAGE excluded share by value (top) {3: 0.0985, 2: 0.0775, 1: 0.0562}  zero-excluded values: 0
+STATE excluded share by value (top) {1: 0.0726, 24: 0.0689, 40: 0.0686, 10: 0.0677, 23: 0.0663, 26: 0.066, 12: 0.0653, 50: 0.065}  zero-excluded values: 0
+states with excluded rows 51 top {48: 88, 24: 87, 1: 84, 12: 80, 11: 78}

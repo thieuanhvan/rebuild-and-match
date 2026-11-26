@@ -1,0 +1,37 @@
+I349 BRFSS-HEART-KEY: pre-stated rule (written and hashed before any rebuild or data inspection)
+Date: 2026-11-25
+Files audited: Kaggle "Personal Key Indicators of Heart Disease" (kamilpytlak):
+  2020/heart_2020_cleaned.csv (BRFSS 2020), 2022/heart_2022_no_nans.csv and
+  2022/heart_2022_with_nans.csv (BRFSS 2022).
+Purpose: decide whether I349 is folded into I336 as a second audited file (two-file data note)
+or adds only one sentence to I336.
+
+PASS if BOTH:
+P1. Rebuild from raw BRFSS (LLCP2020.XPT, LLCP2022.XPT) reproduces >= 0.99 of the Kaggle rows,
+    by multiset match on all shared columns (rate = matched rows / Kaggle rows), for the 2020
+    cleaned file AND for at least one of the two 2022 files. (If only one year reaches 0.99,
+    the audit is limited to that year and this is stated.)
+P2. At least one concrete defect specific to this file, beyond "survey weights/strata/PSU
+    dropped", is documented with counts. Eligible defects:
+    a. label definition: HeartDisease built from CHD/MI (CVDCRHD4/CVDINFR4 or _MICHD) with
+       "don't know/refused" handled in an undocumented or misleading way (count rows affected);
+    b. diabetes "Yes" includes gestational-only or borderline (count rows);
+    c. race recode collapsing groups or misassigning (count rows);
+    d. 2022 no-NaN vs with-NaN file: rows lost differ by group (race, age, sex). This angle
+       counts ONLY if the retained share or the heart-disease prevalence differs between
+       groups with Cohen h >= 0.3 (weighted or unweighted, stated which);
+    e. complete-case drop changes weighted heart-disease prevalence (count rows, report
+       weighted vs unweighted, all valid-label vs file population);
+    f. a leakage-like feature (a feature that is a consequence/near-copy of the label),
+       counted by cross-tab;
+    g. documentation mismatch (page/column description contradicts the file), with counts.
+    Each defect must give counts from the rebuild; a defect only "suspected" does not count.
+
+STOP otherwise: I349 adds only a sentence to I336 (e.g. "the same weight-dropping occurs in
+the 2020/2022 heart file").
+
+Fixed reporting: numbers truncated to 4 decimals; prevalences unweighted and weighted
+(_LLCPWT); no outcome modelling; Cohen h = |2 asin sqrt(p1) - 2 asin sqrt(p2)|.
+Novelty check (light) does not change PASS/STOP but is reported; if a published critique of
+this exact file already documents the same defect with counts, that defect is marked
+"known" and does not count for P2.

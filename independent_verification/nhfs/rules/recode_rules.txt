@@ -1,0 +1,43 @@
+Recode rules: NHFS PUF (nhfspuf.dat, layout nhfspuf.sas) -> DrivenData Flu Shot Learning columns
+Universe: SUBGROUP = "A" (adult questionnaire). Missing in published = empty cell; raw '.'/blank = missing.
+Source of each rule: [CB] = codebook/SAS formats; [INF] = inferred from published data (flagged).
+
+h1n1_concern        CONCERN_NONE_F=1 ->0, CONCERN_NOTV_F=1 ->1, CONCERN_SOME_F=1 ->2, CONCERN_VERY_F=1 ->3; DKNW/REFD/missing -> missing [CB for categories; 0-3 order INF]
+h1n1_knowledge      KNOW_H1N1_NONE_F=1 ->0, _LITL_F=1 ->1, _ALOT_F=1 ->2; DKNW/REFD/missing -> missing [CB; 0-2 order INF]
+behavioral_antiviral_meds   B_H1N1_ANTIV 0/1 [CB]
+behavioral_avoidance        B_H1N1_AVOID 0/1 [CB]
+behavioral_face_mask        B_H1N1_FMASK 0/1 [CB]
+behavioral_wash_hands       B_H1N1_HANDS 0/1 [CB]
+behavioral_large_gatherings B_H1N1_LARGE 0/1 [CB]
+behavioral_outside_home     B_H1N1_RCONT 0/1 [CB]
+behavioral_touch_face       B_H1N1_TOUCH 0/1 [CB]
+doctor_recc_h1n1      1 if DOCREC_H1N1_F=1 or DOCREC_BOTH_F=1; 0 otherwise; missing if DOCREC_* missing or DOCREC_DKNW_F=1 or DOCREC_REFD_F=1 [CB variables; the BOTH->1 and DK/REF->missing choices are a judgement, confirmed only by the 100% match]
+doctor_recc_seasonal  same with DOCREC_SEAS_F
+chronic_med_condition CHRONIC_MED_F 0/1 [CB]
+child_under_6_months  CLOSE_UNDER6MO_F 0/1 [CB]
+health_worker         HEALTH_WORKER_F 0/1 [CB]
+health_insurance      INSURE "01"->1, "02"->0, "77"/"99"/blank -> missing [CB]
+opinion_h1n1_vacc_effective  HQ23   "04"->1 "03"->2 "77"->3 "02"->4 "01"->5, "99"/blank -> missing [INF: 1-5 scale with Don't Know = middle 3 is not in the codebook]
+opinion_h1n1_risk            HQ24   same mapping (04 Very Low ... 01 Very High; 77 -> 3) [INF]
+opinion_h1n1_sick_from_vacc  HQ24_B same mapping (04 Not At All Worried ... 01 Very Worried; 77 -> 3) [INF]
+opinion_seas_vacc_effective  Q23    same [INF]
+opinion_seas_risk            Q24    same [INF]
+opinion_seas_sick_from_vacc  Q24_B  same [INF]
+age_group           AGEGRP 3..7 -> SAS format AGEGRP3_ labels "18 - 34 Years" ... "65+ Years" [CB]
+education           EDUCATION_COMP 1..4 -> "< 12 Years","12 Years","Some College","College Graduate" [CB]
+race                RACEETH4_I 1 Hispanic, 2 Black, 3 White, 4 Other or Multiple [CB codes; shortened label text INF]
+sex                 SEX_I 1 Male, 2 Female [CB]
+income_poverty      INC_POV 1 "> $75,000", 2 "<= $75,000, Above Poverty", 3 "Below Poverty", 4 Unknown -> missing [CB]
+marital_status      MARITAL 1 Married, 2 Not Married [CB]
+rent_or_own         RENT_OWN_R "01" Own, "02" Rent, "77"/"99"/blank -> missing [CB codes; short labels INF]
+employment_status   Q95 "01" Employed, "02" Unemployed, "03" Not in Labor Force, "77"/"99"/blank -> missing [CB]
+census_msa          MSA3_I 1 "MSA, Principle City", 2 "MSA, Not Principle  City" (two spaces, as in SAS format), 3 "Non-MSA" [CB]
+household_adults    N_ADULT_R - 1 (raw 1..4 topcoded -> 0..3), missing -> missing [INF: codebook gives 1..4; published 0..3 = other adults besides respondent]
+household_children  HH_CHILD_R 0..3 (topcoded) [CB]
+hhs_geo_region        scrambled; = HHS_REGION (1..10), one string per code (see scrambled_out.txt)
+employment_industry   scrambled; = Q95_INDSTR 1..21, one string per code; 97/98/blank -> missing
+employment_occupation scrambled; = Q95_OCCPN 1..23, one string per code; 97/98/blank -> missing
+
+Labels
+h1n1_vaccine      VACC_H1N1_F 0/1 (missing -> no valid label) [CB]
+seasonal_vaccine  VACC_SEAS_F 0/1 [CB]

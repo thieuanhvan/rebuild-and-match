@@ -1,0 +1,9 @@
+per-variable DK counts: {'TETANUS1': np.int64(36165), 'PNEUVAC4': np.int64(31387), 'HIVTST7': np.int64(18974), 'LCSCTSC1': np.int64(16876), 'PHYSHLTH': np.int64(8875), 'RMVTETH4': np.int64(8563), 'MENTHLTH': np.int64(6589), 'CHECKUP1': np.int64(5063), 'SLEPTIM1': np.int64(4792), 'CVDCRHD4': np.int64(4044), 'DRNKANY6': np.int64(3447), 'CHCSCNC1': np.int64(2822), 'CVDINFR4': np.int64(2731), 'FLUSHOT7': np.int64(2455), 'DECIDE': np.int64(2266), 'HAVARTH4': np.int64(2264), 'ADDEPEV3': np.int64(2140), 'CHCCOPD3': np.int64(1885), 'CHCKDNY2': np.int64(1581), 'ASTHMA3': np.int64(1494), 'CVDSTRK3': np.int64(1274), 'DEAF': np.int64(1246), 'DIFFWALK': np.int64(1221), 'BLIND': np.int64(1042), 'DIFFALON': np.int64(1023), 'ECIGNOW2': np.int64(905), 'GENHLTH': np.int64(810), 'DIABETE4': np.int64(763), 'EXERANY2': np.int64(724), 'COVIDPOS': np.int64(647), 'DIFFDRES': np.int64(488), 'HIVRISK5': np.int64(450)}
+any DK, all 32 vars: 124631
+any DK excluding day/hour vars: 115228
+any DK excluding CHECKUP1 7 (+8 never is not DK): 122143
+rows with >=1 NaN not explained by DK: 101037
+rows with >=1 DK AND >=1 other NaN: 26558
+rows excluded from no_nans: 199110
+rows whose ONLY NaNs come from DK codes: 98073
+DK rows where every other column is observed (excluding DK cells): 98073

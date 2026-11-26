@@ -1,0 +1,3 @@
+CHECKUP1==8 (never): 2509; CHECKUP1==7 (DK): 5063
+union 5 DK vars + CHECKUP1 never: 89232; of them complete in with_nans (=in no_nans): 0
+union 5 DK vars only: 87189

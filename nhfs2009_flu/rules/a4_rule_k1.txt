@@ -1,0 +1,17 @@
+K1 (Flu Shot Learning) A4 CONSEQUENCE RULE (26/11/2026), written and hashed before any model is fitted.
+Data: T = Kaggle training rows linked one-to-one to an NHFS adult (unique feature key), labels checked equal to NHFS
+VACC_H1N1_F / VACC_SEAS_F; INT_MONTH taken from the linked NHFS row. Features: the 35 distributed features as coded.
+Models, splits, materiality as P9 Section 3.9: logistic regression (C=1, numeric standardized after median imputation
+with a missing indicator, categorical one-hot with missing as a level) and LightGBM (100 trees, lr 0.1, 31 leaves, NaN
+native); five stratified 70/30 splits of T (seeds 0-4, stratified on h1n1_vaccine); material = median paired AUC
+difference >= 0.01, beyond the range over splits of zero, paired bootstrap 95% CI (200 resamples, first split) excludes 0;
+not material = median < 0.01 and CI within +-0.01.
+Q1 (timing): AUC of (35 features + INT_MONTH one-hot) minus AUC of (35 features), each target, each model.
+Q2 (effect estimate): for h1n1_vaccine, logistic odds ratios of doctor_recc_h1n1, chronic_med_condition and
+   health_insurance, adjusted for age_group and sex, without vs with additional adjustment for INT_MONTH (complete cases
+   on the variables in the model). Material if the 95% Wald CIs do not overlap or the estimates lie on opposite sides of 1.
+Q3 (don't know at the midpoint): logistic regression AUC with the six opinion items as numeric 1-5 as distributed vs
+   numeric with 3 set missing (imputed, with a "don't know" indicator), each target. P9 rule.
+Q4 (descriptive, not scored): AUC of a logistic model predicting interview in OCT09-DEC09 from the missing indicators of
+   health_insurance and doctor_recc_h1n1 only; H1N1 vaccinated share by month; weighted (FLUWT) vs unweighted shares.
+A4 PASS if any of Q1-Q3 is material. Otherwise NARROW.

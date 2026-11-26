@@ -1,0 +1,136 @@
+raw respondents 445132
+RULE State <- _STATE : FIPS -> name
+RULE Sex <- SEXVAR : 1 Male, 2 Female
+RULE GeneralHealth <- GENHLTH : 1-5 labels; 7,9 -> NaN
+RULE Physical/MentalHealthDays <- PHYSHLTH/MENTHLTH : 88->0; 77,99 -> NaN
+RULE LastCheckupTime <- CHECKUP1 : 1-4 labels; 8 (NEVER had a checkup) -> NaN, together with 7,9
+RULE PhysicalActivities <- EXERANY2 : 1 Yes, 2 No; 7,9 -> NaN
+RULE SleepHours <- SLEPTIM1 : 1-24; 77,99 -> NaN
+RULE RemovedTeeth <- RMVTETH4 : 8 None, 1, 2, 3; 7,9 -> NaN
+RULE HadHeartAttack <- CVDINFR4 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadAngina <- CVDCRHD4 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadStroke <- CVDSTRK3 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadAsthma <- ASTHMA3 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadSkinCancer <- CHCSCNC1 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadCOPD <- CHCCOPD3 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadDepressiveDisorder <- ADDEPEV3 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadKidneyDisease <- CHCKDNY2 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadArthritis <- HAVARTH4 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE DeafOrHardOfHearing <- DEAF : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE BlindOrVisionDifficulty <- BLIND : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE DifficultyConcentrating <- DECIDE : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE DifficultyWalking <- DIFFWALK : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE DifficultyDressingBathing <- DIFFDRES : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE DifficultyErrands <- DIFFALON : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE ChestScan <- LCSCTSC1 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE AlcoholDrinkers <- DRNKANY6 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HIVTesting <- HIVTST7 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE FluVaxLast12 <- FLUSHOT7 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE PneumoVaxEver <- PNEUVAC4 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HighRiskLastYear <- HIVRISK5 : 1 Yes, 2 No; 7 (don't know), 9 (refused), NaN (not asked) -> NaN
+RULE HadDiabetes <- DIABETE4 : 4 levels; 7,9 -> NaN
+RULE SmokerStatus <- _SMOKER3 : 1-4; 9 -> NaN
+RULE ECigaretteUsage <- ECIGNOW2 : 1-4; 7,9 -> NaN
+RULE RaceEthnicityCategory <- _RACEGR4 : 1-5 (NOT imputed); 9 -> NaN; 'Other race only' pools Asian, AIAN, NHPI and other
+RULE AgeCategory <- _AGEG5YR : 1-13; 14 -> NaN
+RULE Height/Weight/BMI <- HTM4/WTKG3/_BMI5 : /100
+RULE TetanusLast10Tdap <- TETANUS1 : 1-4; 7,9 -> NaN
+RULE CovidPos <- COVIDPOS : 1-3; 7,9 -> NaN
+missing after recode per column: {'State': 0, 'Sex': 0, 'GeneralHealth': 1198, 'PhysicalHealthDays': 10927, 'MentalHealthDays': 9067, 'LastCheckupTime': 8308, 'PhysicalActivities': 1093, 'SleepHours': 5453, 'RemovedTeeth': 11360, 'HadHeartAttack': 3065, 'HadAngina': 4405, 'HadStroke': 1557, 'HadAsthma': 1773, 'HadSkinCancer': 3143, 'HadCOPD': 2219, 'HadDepressiveDisorder': 2812, 'HadKidneyDisease': 1926, 'HadArthritis': 2633, 'HadDiabetes': 1087, 'DeafOrHardOfHearing': 20647, 'BlindOrVisionDifficulty': 21564, 'DifficultyConcentrating': 24240, 'DifficultyWalking': 24012, 'DifficultyDressingBathing': 23915, 'DifficultyErrands': 25656, 'SmokerStatus': 35462, 'ECigaretteUsage': 35660, 'ChestScan': 56046, 'RaceEthnicityCategory': 14057, 'AgeCategory': 9079, 'HeightInMeters': 28652, 'WeightInKilograms': 42078, 'BMI': 48806, 'AlcoholDrinkers': 46574, 'HIVTesting': 66127, 'FluVaxLast12': 47121, 'PneumoVaxEver': 77040, 'TetanusLast10Tdap': 82516, 'HighRiskLastYear': 50623, 'CovidPos': 50764}
+complete cases 246022 of 445132 share kept 0.5526
+kaggle with_nans (445132, 40) duplicate rows 157
+kaggle no_nans (246022, 40) duplicate rows 9
+multiset match rebuild all respondents vs heart_2022_with_nans: rebuild rows 445132 kaggle rows 445132 matched 445132 rate vs kaggle 1.0 | patterns 444975 abs row diff 0
+multiset match rebuild complete cases vs heart_2022_no_nans: rebuild rows 246022 kaggle rows 246022 matched 246022 rate vs kaggle 1.0 | patterns 246013 abs row diff 0
+kaggle with_nans rows with no NaN 246022
+
+== LABEL ==
+CVDINFR4 (rows, MI) x CVDCRHD4 (cols, CHD/angina), all respondents
+ CVDCRHD4  -1      1       2     7    9     All
+CVDINFR4                                      
+-1         2      1       1     0    0       4
+1          0  11908   11971  1210   19   25108
+2          0  14240  400360  2276   83  416959
+7          0    390    1779   552   10    2731
+9          0     12      65     6  247     330
+All        2  26551  414176  4044  359  445132
+_MICHD NaN 5021 of which one item No and the other DK/refused/missing 4204
+label composition among _MICHD=1 (all respondents): MI only 13200 CHD/angina only 14643 both 11908
+no_nans file HadHeartAttack x HadAngina
+ HadAngina           No   Yes
+HadHeartAttack              
+No              224406  8181
+Yes               6663  6772
+ P(HadAngina=Yes | HadHeartAttack=Yes) 0.504  P(HadAngina=Yes | HadHeartAttack=No) 0.0351
+ no_nans rows with CHD/angina but HadHeartAttack=No (would be HeartDisease=Yes under the 2020 definition) 8181 | 2020-style _MICHD=Yes rows in no_nans 21616 | HadHeartAttack=Yes 13435
+ HadHeartAttack prevalence all respondents, valid CVDINFR4 n=442067: unweighted 0.0567 weighted 0.0441 SE 0.0006
+ HadHeartAttack prevalence no_nans file n=246022: unweighted 0.0546 weighted 0.0429 SE 0.0007
+CHD-or-MI (_MICHD) prevalence all valid _MICHD respondents n=440111: unweighted 0.0903 weighted 0.069 design SE 0.0007
+CHD-or-MI (_MICHD) prevalence file population (complete cases) n=246022: unweighted 0.0878 weighted 0.0676 design SE 0.0009
+
+== RACE ==
+raw race in file population ( _RACE1 ) x file race:
+ RaceEthnicityCategory  Black only, Non-Hispanic  ...  White only, Non-Hispanic
+_RACE1                                           ...                          
+1                                             0  ...                    186336
+2                                         19330  ...                         0
+3                                             0  ...                         0
+4                                             0  ...                         0
+5                                             0  ...                         0
+7                                             0  ...                         0
+8                                             0  ...                         0
+
+[7 rows x 5 columns]
+
+== ROW LOSS BY GROUP (complete-case drop) ==
+race (_RACE1)
+ race  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+    1 320421  186336    0.5815  0.5618         0.0977       0.0809          0.0942        0.0785
+    2  35446   19330    0.5453  0.5374         0.0763       0.0585          0.0738        0.0555
+    3   6952    3895    0.5602  0.5373         0.1150       0.1076          0.1103        0.1002
+    4  13347    6813    0.5104  0.4440         0.0337       0.0313          0.0383        0.0323
+    5   2414    1497    0.6201  0.4593         0.0948       0.0612          0.0901        0.0415
+    7   9578    5581    0.5826  0.5404         0.0906       0.0740          0.0903        0.0775
+    8  42917   22570    0.5258  0.4938         0.0571       0.0464          0.0570        0.0445
+    9  14055       0    0.0000  0.0000         0.0981       0.0771             NaN           NaN
+  Cohen h of retained share (max-min): unweighted 1.8134 weighted 1.6948
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.0898
+  group share: weighted population {1: 0.5642, 2: 0.1148, 3: 0.0115, 4: 0.0604, 5: 0.0047, 7: 0.0307, 8: 0.1818, 9: 0.0314} | unweighted file {1: 0.7573, 2: 0.0785, 3: 0.0158, 4: 0.0276, 5: 0.006, 7: 0.0226, 8: 0.0917} | max Cohen h (pop weighted vs file unweighted) 0.4118
+age group _AGEG5YR
+ ageg  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+    1  26941   13122    0.4870  0.4646         0.0075       0.0084          0.0067        0.0069
+    2  21990   11109    0.5051  0.4876         0.0096       0.0122          0.0085        0.0096
+    3  25807   13346    0.5171  0.4982         0.0121       0.0142          0.0111        0.0124
+    4  28526   15614    0.5473  0.5287         0.0165       0.0174          0.0155        0.0157
+    5  29942   16973    0.5668  0.5412         0.0236       0.0241          0.0212        0.0194
+    6  28531   16753    0.5871  0.5625         0.0376       0.0404          0.0365        0.0402
+    7  33644   19913    0.5918  0.5736         0.0545       0.0516          0.0517        0.0474
+    8  36821   22224    0.6035  0.5725         0.0791       0.0838          0.0743        0.0787
+    9  44511   26720    0.6003  0.5776         0.1000       0.1012          0.0921        0.0937
+   10  47099   28557    0.6063  0.5770         0.1257       0.1374          0.1203        0.1289
+   11  43472   25739    0.5920  0.5743         0.1585       0.1630          0.1542        0.1645
+   12  32518   18136    0.5577  0.5293         0.1940       0.1919          0.1894        0.1919
+   13  36251   17816    0.4914  0.4544         0.2328       0.2359          0.2289        0.2315
+  Cohen h of retained share (max-min): unweighted 0.2401 weighted 0.2472
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.0322
+  group share: weighted population {1: 0.119, 2: 0.0772, 3: 0.0938, 4: 0.0763, 5: 0.084, 6: 0.0649, 7: 0.0772, 8: 0.0731, 9: 0.0866, 10: 0.0698, 11: 0.0631, 12: 0.0436, 13: 0.0494} | unweighted file {1: 0.0533, 2: 0.0451, 3: 0.0542, 4: 0.0634, 5: 0.0689, 6: 0.068, 7: 0.0809, 8: 0.0903, 9: 0.1086, 10: 0.116, 11: 0.1046, 12: 0.0737, 13: 0.0724} | max Cohen h (pop weighted vs file unweighted) 0.2383
+sex
+ SEXVAR  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+      1 209239  118211    0.5649  0.5321         0.1119       0.0836          0.1102        0.0831
+      2 235893  127811    0.5418  0.5093         0.0711       0.0551          0.0671        0.0522
+  Cohen h of retained share (max-min): unweighted 0.0465 weighted 0.0457
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.0128
+  group share: weighted population {1: 0.4868, 2: 0.5131} | unweighted file {1: 0.4804, 2: 0.5195} | max Cohen h (pop weighted vs file unweighted) 0.0127
+
+== WHICH COLUMNS DRIVE THE DROP ==
+rows dropped 199110 | dropped because of exactly one column: {'TetanusLast10Tdap': 18663, 'PneumoVaxEver': 16931, 'HIVTesting': 9066, 'ChestScan': 7179, 'RaceEthnicityCategory': 5006, 'RemovedTeeth': 4035, 'PhysicalHealthDays': 2945, 'LastCheckupTime': 2911, 'MentalHealthDays': 2139, 'AgeCategory': 1901, 'AlcoholDrinkers': 1806, 'BMI': 1345, 'HadAngina': 1250, 'SleepHours': 1246, 'HadSkinCancer': 1038, 'SmokerStatus': 940, 'FluVaxLast12': 789, 'DifficultyConcentrating': 760, 'HadHeartAttack': 753, 'CovidPos': 677, 'HadArthritis': 670, 'HadDepressiveDisorder': 616, 'HighRiskLastYear': 538, 'HadKidneyDisease': 488, 'HadCOPD': 475, 'DeafOrHardOfHearing': 434, 'HadAsthma': 426, 'ECigaretteUsage': 401, 'HadStroke': 375, 'DifficultyWalking': 365, 'BlindOrVisionDifficulty': 315, 'DifficultyErrands': 287, 'GeneralHealth': 256, 'PhysicalActivities': 217, 'HadDiabetes': 187, 'DifficultyDressingBathing': 107}
+ PneumoVaxEver: 'don't know'/'never' answers coded NaN 31387
+ TetanusLast10Tdap: 'don't know'/'never' answers coded NaN 36165
+ ChestScan: 'don't know'/'never' answers coded NaN 16876
+ HIVTesting: 'don't know'/'never' answers coded NaN 18974
+ LastCheckupTime(never): 'don't know'/'never' answers coded NaN 2509
+ CovidPos: 'don't know'/'never' answers coded NaN 647
+ rows with at least one such answer 89232 | all of them excluded from no_nans: True
+ complete cases if only the 30 health/demographic columns were required: 329801 | lost only because of the 10 vaccine/test/behaviour columns 83779
+ never-checkup respondents: n 2509 MI unweighted 0.0287 age>=65 share 0.139 vs all 0.3579
+saved work/rebuild2022.pkl | P1 rebuild: {'with_nans': 'PASS 1.0', 'no_nans': 'PASS 1.0'}

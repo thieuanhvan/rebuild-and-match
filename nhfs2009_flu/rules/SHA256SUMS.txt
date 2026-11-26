@@ -1,0 +1,2 @@
+0364ca974164a1c74a4d1fd5264d8b28c4bf2ba41db8a0ad2ff88685f400c9eb  a4_rule_k1.txt
+9fae6f3ee63f57a73c6644ec0cd4b15dcd921d50676c643babc5393d952360e1  prestated_rule_surveybench_r2.txt

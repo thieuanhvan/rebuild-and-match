@@ -1,0 +1,5 @@
+C 336651 F 308854 excluded 27797
+Q4 prevalence: F 0.0808 | C 0.0831 | excluded 0.1092
+Fruit_Consumption | file rows, file coding 0.8947 (0.8794-0.9102) | file rows, correct coding 0.9086 (0.8942-0.9232) | C, correct, all values <=128 0.8897 (0.8753-0.9044) | C correct 0.9949 (0.9919-0.9979)
+Green_Vegetables_Consumption | file rows, file coding 0.7948 (0.7706-0.8198) | file rows, correct coding 0.8359 (0.8132-0.8591) | C, correct, all values <=128 0.7845 (0.7616-0.8082) | C correct 0.997 (0.994-1.0001)
+FriedPotato_Consumption | file rows, file coding 1.1422 (1.09-1.1968) | file rows, correct coding 1.104 (1.0634-1.1462) | C, correct, all values <=128 1.144 (1.0933-1.1971) | C correct 1.0062 (0.9993-1.0131)

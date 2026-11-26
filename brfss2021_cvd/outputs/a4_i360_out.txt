@@ -1,0 +1,21 @@
+C 336651 F 308854 excluded 27797
+Q4 prevalence: F 0.0808 | C 0.0831 | excluded 0.1092
+lr seed 0 AUC A 0.8321 B 0.833 B on F-only 0.8345 B on excluded 0.809 20:20:11
+lr seed 1 AUC A 0.83 B 0.8309 B on F-only 0.8336 B on excluded 0.7959 20:20:15
+lr seed 2 AUC A 0.8347 B 0.8349 B on F-only 0.8365 B on excluded 0.8118 20:20:19
+lr seed 3 AUC A 0.8319 B 0.8321 B on F-only 0.8333 B on excluded 0.8143 20:20:24
+lr seed 4 AUC A 0.833 B 0.833 B on F-only 0.8357 B on excluded 0.8003 20:20:28
+lr Q1 B-A median 0.0002 range 0.0 0.0009 ref range 0.004 CI 0.0004 0.0013 not material
+lr Q2 all-Fonly median -0.0016 range -0.0027 -0.0011 ref range 0.004 CI -0.0028 -0.0003 not material
+lr excluded-only AUC median 0.809
+gbm seed 0 AUC A 0.8343 B 0.8344 B on F-only 0.8359 B on excluded 0.8094 20:20:54
+gbm seed 1 AUC A 0.8323 B 0.8322 B on F-only 0.8352 B on excluded 0.7941 20:20:59
+gbm seed 2 AUC A 0.8361 B 0.8365 B on F-only 0.8384 B on excluded 0.8104 20:21:04
+gbm seed 3 AUC A 0.8338 B 0.8343 B on F-only 0.8355 B on excluded 0.8181 20:21:09
+gbm seed 4 AUC A 0.8349 B 0.8349 B on F-only 0.8379 B on excluded 0.7993 20:21:14
+gbm Q1 B-A median 0.0 range 0.0 0.0004 ref range 0.0042 CI -0.0004 0.0005 not material
+gbm Q2 all-Fonly median -0.0019 range -0.003 -0.0011 ref range 0.0042 CI -0.0028 -0.0003 not material
+gbm excluded-only AUC median 0.8094
+Q3 Fruit_Consumption file OR 0.8947 (0.8794-0.9102) | correct OR 0.9949 (0.9919-0.9979) MATERIAL
+Q3 Green_Vegetables_Consumption file OR 0.7948 (0.7706-0.8198) | correct OR 0.997 (0.994-1.0001) MATERIAL
+Q3 FriedPotato_Consumption file OR 1.1422 (1.09-1.1968) | correct OR 1.0062 (0.9993-1.0131) MATERIAL

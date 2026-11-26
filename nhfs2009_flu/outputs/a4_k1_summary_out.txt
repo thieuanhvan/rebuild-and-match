@@ -1,0 +1,8 @@
+h1n1_vaccine lr: features 0.8603 [0.8584, 0.8679]; + INT_MONTH 0.8756 [0.8727, 0.8805]
+h1n1_vaccine lgb: features 0.8653 [0.8636, 0.8735]; + INT_MONTH 0.8813 [0.8794, 0.8823]
+seasonal_vaccine lr: features 0.8546 [0.8515, 0.8566]; + INT_MONTH 0.8564 [0.852, 0.8577]
+seasonal_vaccine lgb: features 0.8614 [0.8602, 0.8636]; + INT_MONTH 0.8629 [0.8592, 0.8652]
+h1n1_vaccine: weighted all adults with valid label (n=56375) 0.1927; weighted file population (n=53417) 0.1918; unweighted file population 0.2131
+seasonal_vaccine: weighted all adults with valid label (n=56434) 0.3922; weighted file population (n=53417) 0.3916; unweighted file population 0.466
+adults with either label missing 430 ; of them with feature key in file 1
+rebuild adults 56656 children in raw file 14288

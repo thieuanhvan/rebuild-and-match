@@ -1,0 +1,17 @@
+rows 012/bin/5050/uci: 253680 253680 70692 253680
+012 counts: {0.0: 213703, 1.0: 4631, 2.0: 35346}
+bin counts: {0.0: 218334, 1.0: 35346}
+5050 counts: {0.0: 35346, 1.0: 35346}
+uci columns: ['ID', 'Diabetes_binary', 'HighBP'] ... n cols 23
+uci label Diabetes_binary {0: 218334, 1: 35346}
+bin rows aligned to 012 rows, features equal: True | label == 012 mapped {1->0,2->1}: True
+prediabetes (012==1) rows with binary label 0: 4631
+5050 class-1 multiset == 012 class-2 multiset: True
+5050 class-1 rows also matching a 012 prediabetes pattern (upper bound): 69
+uci feature columns matched: 21 of 21
+uci == kaggle binary multiset: True
+duplicate rows in binary file (rows beyond first): 24206
+raw respondents: 441456
+raw DIABETE3: {1: 57256, 2: 3608, 3: 372104, 4: 7690, 7: 598, 9: 193, 'NaN': 7}
+weighted prevalence code1 among codes 1-4: 0.105
+unweighted prevalence binary file: 0.1393

@@ -1,0 +1,33 @@
+Independent check: Flu Shot Learning files rebuilt from NHFS 2009 PUF (scripts in this folder; decimals truncated)
+
+1. Raw file: 70944 records (250-char fixed width, 171 SAS fields). SUBGROUP (col 20): A = 56656 adults, C = 14288 children.
+
+2. Recode rules for 32 features + 2 labels: recode_rules.txt. Labels = VACC_H1N1_F, VACC_SEAS_F.
+
+3. Multiset match (32 non-scrambled features, missing = "<NA>", respondent_id and 3 scrambled columns excluded):
+   published rows 53415 (train 26707 + test 26708); matched 53415; rate 1.0000.
+   Training rows with both labels in the key: 26707 of 26707 matched; rate 1.0000. No published row lacks a raw adult.
+
+4. Adults not consumed: 56656 - 53415 = 3241. Count rule: per feature tuple, absent = max(0, adult count - published count);
+   within a tuple, published rows are assumed to consume adults with both labels valid first.
+   Absent with >=1 missing label: 430 (all 430 such adults in the raw file); absent with both labels present: 2811.
+   Over any within-tuple assignment, the missing-label count among absent lies in [429, 430].
+   3238 of the 3241 sit in tuples with no published row at all; they spread across all 9 interview months, both
+   sample frames and all age groups (no single filter explains them; looks like a sample drop, cause not determinable).
+
+5. Published training unweighted means: h1n1_vaccine 0.2124, seasonal_vaccine 0.4656.
+   FLUWT ("FINAL CUMULATIVE WEIGHT") weighted prevalence among adults with valid answer:
+   H1N1 0.1927 (n=56375; unweighted 0.2133); seasonal 0.3922 (n=56434; unweighted 0.4665).
+
+6. On 53390 uniquely linked rows (tuple occurs once in each side): hhs_geo_region 10 strings <-> 10 HHS_REGION codes, 1:1;
+   employment_industry 21 strings <-> Q95_INDSTR 1-21, 1:1, codes 97/98/blank -> blank;
+   employment_occupation 23 strings <-> Q95_OCCPN 1-23, 1:1, codes 97/98/blank -> blank. No code maps to two strings.
+
+Recodes inferred from published data, not the codebook:
+- six opinion items: 1-5 scale with "Don't Know" (77) = 3, order reversed from raw 01-04; Refused (99) -> missing;
+- household_adults = N_ADULT_R - 1 (codebook range 1-4, published 0-3);
+- 0-based order of h1n1_concern (0-3) and h1n1_knowledge (0-2);
+- doctor_recc_*: "both vaccines" counts as 1, DK/Refused -> missing (judgement; confirmed only by the match);
+- short text labels for race and rent_or_own; 97/98 industry/occupation -> blank.
+
+Did not match: nothing. Every published row and every training label pair has a raw adult counterpart.

@@ -1,0 +1,11 @@
+# Python 3.13 (results produced with Python 3.13.9)
+# Versions are pinned only where the run records state them.
+pandas==2.3.3
+scikit-learn==1.7.2
+lightgbm==4.7.0
+statsmodels==0.14.5
+pyarrow==21.0.0
+numpy
+scipy
+matplotlib
+psutil

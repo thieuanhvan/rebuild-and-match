@@ -1,0 +1,37 @@
+SURVEY-DERIVED BENCHMARK HUNT, ROUND 1 (25/11/2026) - PRE-STATED RULE
+Written after reading the Kaggle/UCI pages and discussion tabs (lesson I352), BEFORE any literature
+search, download, rebuild or count. Hashed (SHA-256) before the literature search.
+
+Candidates (found by Kaggle search "BRFSS", "NHANES", "NHIS survey", "CDC survey prediction", sorted by votes):
+ I360  alphiree/cardiovascular-diseases-risk-prediction-dataset (BRFSS 2021, CVD_cleaned.csv, 308,854 rows,
+       19 variables, CC0, 32.1K downloads, 98 notebooks, linked article in EJCSIT 2023). Discussion: 3 threads
+       read (sources; hypertension column request; fruit/vegetable/fried-potato units - creator says values are
+       "number of consumption in a month", converted from per-day/per-week answers; construction code requested,
+       not shared).
+ I361  UCI 887 "NHANES 2013-2014 Age Prediction Subset" (donated 21/09/2023; page says 6,287 instances, 7
+       features; label age_group senior >= 65; RIDAGEYR kept as "Other"; introductory paper is an unrelated
+       2019 diabetes/CVD paper; fasting glucose, OGTT and insulin are subsample measures in NHANES).
+ I362  alexteboul/heart-disease-health-indicators-dataset (BRFSS 2015, 253,680 rows, same pipeline as the
+       P9 diabetes file). = I355. Not a separate idea: decided in advance that it can only become one row or
+       sentence of P9.
+ Not taken: prosperchuks/health-dataset diabetes_data (70,692 rows = Teboul 50:50 file repackaged; inherits P9
+       defect, P9 sentence at most); CDC aggregate tables; files < 5K downloads.
+
+ALIVE as a separate paper requires ALL of:
+ A1 Reach: >= 5 published papers (Europe PMC or Crossref, any year) that use the file, OR >= 50 Kaggle notebooks.
+ A2 Rebuild: the file is rebuilt from the official raw survey file with multiset match >= 0.99, OR the attempt
+    shows precisely which step cannot be reproduced (that itself is a finding).
+ A3 >= 2 undocumented construction decisions verified against raw data, of which >= 1 changes the label or the
+    meaning/unit of a feature, and >= 1 belongs to a defect class NOT in P9 (P9 classes: label recode vs
+    documentation, dropped design variables, complete-case deletion of valid answers, outcome/feature drift
+    across versions, imputed race). Points already raised publicly (discussion tab, papers) count only as cited.
+ A4 Consequence: at least one decision changes a typical model result under the P9 AUC rule (median paired
+    difference >= 0.01, beyond seed range, bootstrap CI excludes 0) or changes an effect estimate beyond its CI.
+    (Tested only if A1-A3 pass.)
+KILL if: a paper, preprint, notebook or discussion post already rebuilds the file from raw data and reports the
+ same defects; or A1 fails; or the only defects are P9 classes (then: P9 row or nothing).
+NARROW if: A1-A3 pass but A4 fails (documentation note at most; decide with the student).
+
+Order: literature search (Europe PMC, Crossref, arXiv) for each candidate -> download official raw file
+(public CDC, no login) -> rebuild pilot (Kaggle/UCI copies: student downloads if login needed) -> two blind
+screeners -> verdict. One external API process at a time; UA research-script/1.0; no NCBI E-utilities.

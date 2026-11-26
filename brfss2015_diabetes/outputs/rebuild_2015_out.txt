@@ -1,0 +1,74 @@
+  pw = cc.groupby(g).apply(lambda s: np.average(s.Diabetes_binary, weights=s._LLCPWT))
+  pw = cc.groupby(g).apply(lambda s: np.average(s.Diabetes_binary, weights=s._LLCPWT))
+  pw = cc.groupby(g).apply(lambda s: np.average(s.Diabetes_binary, weights=s._LLCPWT))
+  pw = cc.groupby(g).apply(lambda s: np.average(s.Diabetes_binary, weights=s._LLCPWT))
+raw respondents 441456
+ raw DIABETE3 {1: 57256, 2: 3608, 3: 372104, 4: 7690, 7: 598, 9: 193, 'NaN': 7}
+ raw _RFHYPE5 {1: 261901, 2: 178188, 9: 1367}
+ raw TOLDHI2 {1: 159970, 2: 218771, 7: 3037, 9: 524, 'NaN': 59154}
+ raw _CHOLCHK {1: 362923, 2: 13523, 3: 49673, 9: 15337}
+ raw _BMI5 distinct 3737 NaN 36398
+ raw SMOKE100 {1: 184299, 2: 239608, 7: 1832, 9: 1462, 'NaN': 14255}
+ raw CVDSTRK3 {1: 18269, 2: 421897, 7: 1146, 9: 144}
+ raw _MICHD {1: 38633, 2: 398881, 'NaN': 3942}
+ raw _TOTINDA {1: 296020, 2: 107444, 9: 37992}
+ raw _FRTLT1 {1: 247817, 2: 149928, 9: 43711}
+ raw _VEGLT1 {1: 309561, 2: 80778, 9: 51117}
+ raw _RFDRHV5 {1: 393658, 2: 22065, 9: 25733}
+ raw HLTHPLN1 {1: 407556, 2: 32060, 7: 1052, 9: 788}
+ raw MEDCOST {1: 43514, 2: 396748, 7: 945, 9: 248, 'NaN': 1}
+ raw GENHLTH {1: 76032, 2: 145065, 3: 136975, 4: 58962, 5: 23175, 7: 799, 9: 446, 'NaN': 2}
+ raw MENTHLTH distinct 33 NaN 0
+ raw PHYSHLTH distinct 34 NaN 1
+ raw DIFFWALK {1: 74664, 2: 352198, 7: 1346, 9: 914, 'NaN': 12334}
+ raw SEX {1: 186938, 2: 254518}
+ raw _AGEG5YR {1: 24192, 2: 19746, 3: 22917, 4: 24545, 5: 25942, 6: 30276, 7: 39881, 8: 46209, 9: 49794, 10: 49264, 11: 38362, 12: 28232, 13: 36760, 14: 5336}
+ raw EDUCA {1: 609, 2: 11187, 3: 22463, 4: 123227, 5: 120528, 6: 161631, 9: 1811}
+ raw INCOME2 {1: 18449, 2: 19599, 3: 26797, 4: 32377, 5: 39235, 6: 52052, 7: 58130, 8: 115312, 77: 35258, 99: 40946, 'NaN': 3301}
+RULE Diabetes_012 <- DIABETE3 : 1->2 (diabetes); 2 (yes, only during pregnancy)->0; 3 (no)->0; 4 (prediabetes/borderline)->1; 7,9,NaN dropped
+RULE HighBP <- _RFHYPE5 : 1 (no)->0; 2 (yes)->1; 9 dropped
+RULE HighChol <- TOLDHI2 : 1->1; 2->0; 7,9,NaN dropped (NaN = cholesterol never checked, skip pattern)
+RULE CholCheck <- _CHOLCHK : 1 (within 5 y)->1; 2 (not within 5 y)->0; 3 (never)->0; 9 dropped
+RULE BMI <- _BMI5 : /100 then rounded to integer; NaN dropped
+RULE Smoker <- SMOKE100 : 1->1; 2->0; 7,9 dropped
+RULE Stroke <- CVDSTRK3 : 1->1; 2->0; 7,9 dropped
+RULE HeartDiseaseorAttack <- _MICHD : 1->1; 2->0; NaN dropped
+RULE PhysActivity <- _TOTINDA : 1->1; 2->0; 9 dropped
+RULE Fruits <- _FRTLT1 : 1->1; 2->0; 9,NaN dropped
+RULE Veggies <- _VEGLT1 : 1->1; 2->0; 9,NaN dropped
+RULE HvyAlcoholConsump <- _RFDRHV5 : 1 (no)->0; 2 (yes)->1; 9 dropped
+RULE AnyHealthcare <- HLTHPLN1 : 1->1; 2->0; 7,9 dropped
+RULE NoDocbcCost <- MEDCOST : 1->1; 2->0; 7,9 dropped
+RULE GenHlth <- GENHLTH : 1-5 kept; 7,9 dropped
+RULE MentHlth <- MENTHLTH : 88->0; 1-30 kept; 77,99 dropped
+RULE PhysHlth <- PHYSHLTH : 88->0; 1-30 kept; 77,99 dropped
+RULE DiffWalk <- DIFFWALK : 1->1; 2->0; 7,9 dropped
+RULE Sex <- SEX : 1 (male)->1; 2 (female)->0
+RULE Age <- _AGEG5YR : 1-13 kept; 14 (dk/refused) dropped
+RULE Education <- EDUCA : 1-6 kept; 9 dropped
+RULE Income <- INCOME2 : 1-8 kept; 77,99 dropped
+missing after recode per feature (all raw): {'Diabetes_012': 798, 'HighBP': 1367, 'HighChol': 62715, 'CholCheck': 15337, 'BMI': 36398, 'Smoker': 17549, 'Stroke': 1290, 'HeartDiseaseorAttack': 3942, 'PhysActivity': 37992, 'Fruits': 43711, 'Veggies': 51117, 'HvyAlcoholConsump': 25733, 'AnyHealthcare': 1840, 'NoDocbcCost': 1194, 'GenHlth': 1247, 'MentHlth': 7408, 'PhysHlth': 9743, 'DiffWalk': 14594, 'Sex': 0, 'Age': 5336, 'Education': 1811, 'Income': 79505}
+complete cases 253680 dropped 187776 share kept 0.5746
+valid label (DIABETE3 1-4) 440658
+Diabetes_012 in complete cases {0.0: 213703, 1.0: 4631, 2.0: 35346}
+DIABETE3 in complete cases {1.0: 35346, 2.0: 1978, 3.0: 211725, 4.0: 4631}
+multiset match rebuild vs UCI: rows a 253680 b 253680 matched 253680 rate vs b 1.0 patterns 229474 identical-count patterns 229474 abs row diff 0
+kaggle binary rows 253680 012 rows 253680 5050 rows 70692
+kaggle 012 counts {0.0: 213703, 1.0: 4631, 2.0: 35346} 5050 counts {0.0: 35346, 1.0: 35346}
+multiset match rebuild vs Kaggle binary: rows a 253680 b 253680 matched 253680 rate vs b 1.0 patterns 229474 identical-count patterns 229474 abs row diff 0
+multiset match Kaggle binary vs UCI: rows a 253680 b 253680 matched 253680 rate vs b 1.0 patterns 229474 identical-count patterns 229474 abs row diff 0
+multiset match rebuild vs Kaggle 012 (3-class): rows a 253680 b 253680 matched 253680 rate vs b 1.0 patterns 229781 identical-count patterns 229781 abs row diff 0
+5050 rows not contained in the Kaggle binary file 0
+all valid-label respondents n=440658 Diabetes_binary: unweighted 0.1299 weighted 0.105 design SE 0.0008 (single-PSU strata 0)
+all valid-label respondents n=440658 pre_or_dm: unweighted 0.1473 weighted 0.1209 design SE 0.0009 (single-PSU strata 0)
+complete cases (published population) n=253680 Diabetes_binary: unweighted 0.1393 weighted 0.1228 design SE 0.0012 (single-PSU strata 4)
+complete cases (published population) n=253680 pre_or_dm: unweighted 0.1575 weighted 0.1406 design SE 0.0013 (single-PSU strata 4)
+Income weighted prev {1: 0.2045, 2: 0.2315, 3: 0.1939, 4: 0.1799, 5: 0.1506, 6: 0.1246, 7: 0.1095, 8: 0.0733}
+   Cohen h weighted: lowest-vs-highest 0.39 max-min 0.4554 | unweighted: lowest-vs-highest 0.4586 max-min 0.5024
+Education weighted prev {1: 0.2227, 2: 0.2567, 3: 0.199, 4: 0.1453, 5: 0.1217, 6: 0.0763}
+   Cohen h weighted: lowest-vs-highest 0.4229 max-min 0.5027 | unweighted: lowest-vs-highest 0.4599 max-min 0.5099
+Sex weighted prev {0: 0.1143, 1: 0.1313}
+   Cohen h weighted: lowest-vs-highest 0.0516 max-min 0.0516 | unweighted: lowest-vs-highest 0.0631 max-min 0.0631
+Age weighted prev {1: 0.0145, 2: 0.0202, 3: 0.0263, 4: 0.0437, 5: 0.0688, 6: 0.0951, 7: 0.1232, 8: 0.1538, 9: 0.203, 10: 0.2278, 11: 0.2425, 12: 0.2434, 13: 0.198}
+   Cohen h weighted: lowest-vs-highest 0.6801 max-min 0.7898 | unweighted: lowest-vs-highest 0.6542 max-min 0.7381
+saved <out pickle>/rebuild2015.pkl rows 441456 rebuild PASS

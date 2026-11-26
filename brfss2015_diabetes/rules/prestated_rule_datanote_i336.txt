@@ -1,0 +1,26 @@
+I336 DATA NOTE prior-publication rule (written 25/11/2026 before any search for the data-note claims)
+
+Claims under test:
+C1 exact rebuild of the CDC Diabetes Health Indicators file (UCI 891 / Kaggle) from raw BRFSS 2015
+   (441,456 raw respondents -> 253,680 complete cases, share kept 0.5746; multiset match 1.0 vs UCI and Kaggle).
+C2 documentation mismatch: UCI says class 1 = "prediabetes or diabetes", but prediabetes (4,631) and
+   gestational-only (1,978) rows are in class 0; UCI page claims 35 features / lab results / links an unrelated intro paper.
+C3 weighted prevalence 0.1050 (all valid) vs file 0.1228 weighted vs 0.1393 unweighted; complete-case drop adds 0.0178.
+C4 design variables (_LLCPWT, _STSTR, _PSU) dropped; 24,206 exact-duplicate rows are real respondents.
+C5 the 21-feature file cannot be rebuilt identically for BRFSS 2022/2023 (missing core items).
+C6 negative result: weighted fit shifts the income TPR gap by -0.0395, Rao-Wu CI includes 0; seed floors understate design SE ~2.7x.
+
+Decision:
+DEAD   if C1 AND C2 (the core) are already published in any public form: paper, preprint, a widely cited Kaggle
+       discussion/notebook, a GitHub issue, a UCI errata/change-log entry, or a blog that documents the
+       prediabetes-in-class-0 mismatch AND a rebuild from raw BRFSS.
+NARROW if C2 is published informally (Kaggle discussion/notebook, GitHub issue/README, blog) but not in a paper or preprint;
+       the note must then cite it and lean on C3-C6. Also NARROW if C2 appears in a paper only as a side remark without
+       the counts and without C1.
+ALIVE  otherwise.
+Note: a source that merely states the correct coding (prediabetes -> 0 in the binary file, e.g. the original notebook)
+without flagging that the UCI documentation contradicts it does not count as publishing the C2 mismatch; it counts as the
+provenance source to cite.
+Unreachable sources (login wall, 403, 429, CAPTCHA) are recorded UNREACHABLE and not bypassed; if the Kaggle discussion
+tab is unreachable the verdict carries that caveat.
+Misdescription count (aggregate only): papers that describe class 1 of the binary file as including prediabetes/borderline.

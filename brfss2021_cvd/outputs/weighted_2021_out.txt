@@ -1,0 +1,6 @@
+all valid n 434058 weighted 0.0613 SE 0.0007 singleton strata 70
+file population n 308854 weighted 0.0611 SE 0.0008 singleton strata 69
+file unweighted 0.0808 positives 24971
+valid _MICHD 434058
+dup rows beyond first 80
+zip sha256 e8a6e290cdcb6bff82d8f37dff6c3f3e435d428191eb529a716cf9f5316aa621

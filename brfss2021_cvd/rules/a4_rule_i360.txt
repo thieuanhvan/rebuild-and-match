@@ -1,0 +1,17 @@
+I360 A4 CONSEQUENCE RULE (25/11/2026), written and hashed before any model is fitted.
+Data: C = respondents complete under CORRECT coding (336,651; per-day x30, per-week x4, per-month x1,
+"less than once a month" = 0.5, never = 0; Sex from _SEX); F = the 308,854 rows of CVD_cleaned.csv (subset of C,
+file coding as distributed). Outcome Heart_Disease (Yes). All 18 other columns as features.
+Models, splits, AUC and materiality exactly as P9 Section 3.9: logistic regression (C=1, standardized numeric,
+one-hot categorical) and LightGBM (100 trees, lr 0.1, 31 leaves); five stratified 70/30 splits of C (seeds 0-4);
+material = median paired AUC difference >= 0.01, beyond reference range over splits, paired bootstrap 95% CI
+(200 resamples, first split) excludes 0; not material = median < 0.01 and CI within +-0.01.
+Q1 (model a user gets): model A trained on train rows in F with file coding; model B trained on all train rows of
+   C with correct coding; both scored on the test rows of C with correct coding. Difference B - A.
+Q2 (reported benchmark): model B scored on test rows of C that are in F vs on all test rows of C, and on the
+   excluded test rows alone. Same materiality rule on (all - F-only) AUC.
+Q3 (effect estimate): age- and sex-adjusted odds ratio for heart disease per 30 servings/month of fruit, of green
+   vegetables and of fried potatoes; file (F, file coding) vs C (correct coding). Logistic regression, Wald 95% CI.
+   Material if CIs do not overlap or the estimates lie on opposite sides of 1.
+Q4 (prevalence, descriptive): unweighted heart-disease prevalence in F vs C vs weighted raw.
+A4 PASS if any of Q1-Q3 is material. Otherwise NARROW (documentation note at most).

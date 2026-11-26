@@ -1,0 +1,31 @@
+I336 BRFSS-BENCH: pre-stated kill rule, written 2026-11-25 before the deep search and before any data download.
+
+Idea: audit how the "CDC Diabetes Health Indicators" file (Kaggle; UCI id 891; built from BRFSS 2015 by A. Teboul) was
+constructed (prediabetes and gestational-diabetes coding into the label, dropped survey weights/strata/PSU, duplicate rows,
+the 50:50 balanced variant, variable recodes), measure how these choices change AUC, SHAP feature rankings and fairness gaps
+(income, education, sex, age), rebuild the file from raw BRFSS with the design variables, and check on BRFSS 2021-2023.
+Four layers: discovery -> fix (corrected rebuild + released script + datasheet) -> guideline comparison (ADA Diabetes Risk
+Test / CDC Prediabetes Risk Test at equal referral rate) -> external check (later BRFSS years) + tool.
+
+DEAD if any of:
+  D1  A paper (journal, preprint or conference) already rebuilds or audits this file's construction from raw BRFSS (label
+      coding, weights, duplicates or the balanced variant) AND reports the effect on model performance, explanations
+      or fairness. A paper that only notes duplicates or class imbalance in passing, or only drops duplicates before
+      training, does NOT meet D1.
+  D2  A close general "benchmark dataset construction audit" (tabular health benchmarks, survey-derived ML datasets)
+      already covers this file or makes the result trivial (e.g. a published audit showing that survey-derived ML
+      benchmarks drop weights and mislabel classes, with this file as one of its worked examples).
+  D3  The data cannot support the study: raw BRFSS 2015 not obtainable without login, or the rebuild cannot recover the
+      published file's label/row counts within a documented recode, or the case count per year is too small. For the
+      fairness layer only: compute the diabetes-prevalence SMD (Cohen's h for proportions, lowest vs highest group)
+      across income and education groups; if ALL such SMDs are < 0.3, the fairness layer is dropped, NOT the idea.
+
+NARROW if: a close prior covers one or two of the layers (for example duplicates and imbalance with AUC, but not label
+coding, weights or explanation/fairness shifts), or the guideline layer cannot be computed on the BRFSS items, or the
+fairness layer is dropped by D3; the idea then continues with the remaining layers and a sharper claim.
+
+ALIVE if none of D1-D3 apply and no NARROW condition holds: no prior rebuilds the file from raw BRFSS and measures the
+effect of its construction on performance, explanation and fairness, and the data reproduce.
+
+Meaningful change (for the later pilot, stated now): an AUC change >= 0.02, a top-5 SHAP rank swap, or a fairness gap
+that changes sign or by >= 0.02 absolute; evaluated on the same test respondents.

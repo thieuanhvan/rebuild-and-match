@@ -1,0 +1,98 @@
+raw respondents 401958
+RULE HeartDisease <- _MICHD : 1->Yes (CVDINFR4=1 or CVDCRHD4=1); 2->No (both=2); NaN (any DK/refused/missing without a Yes) dropped
+RULE BMI <- _BMI5 : /100; NaN dropped
+RULE Smoking <- SMOKE100 : 1 Yes, 2 No; 7,9,NaN dropped
+RULE AlcoholDrinking <- _RFDRHV7 : heavy drinking: 2->Yes, 1->No; 9 dropped
+RULE Stroke <- CVDSTRK3 : 1 Yes, 2 No; 7,9 dropped
+RULE PhysicalHealth <- PHYSHLTH : 88->0; 1-30 kept; 77,99 dropped
+RULE MentalHealth <- MENTHLTH : 88->0; 1-30 kept; 77,99 dropped
+RULE DiffWalking <- DIFFWALK : 1 Yes, 2 No; 7,9,NaN dropped
+RULE Sex <- SEXVAR : 1 Male, 2 Female
+RULE AgeCategory <- _AGEG5YR : 1-13 -> 5-year labels; 14 (DK/refused) dropped
+RULE Race <- _IMPRACE : CDC IMPUTED race/ethnicity: 1 White NH, 2 Black NH, 3 Asian NH, 4 AIAN NH, 5 Hispanic, 6 Other NH (NHPI, other, multiracial); never missing
+RULE Diabetic <- DIABETE4 : 1 Yes, 2 Yes (during pregnancy), 3 No, 4 No, borderline; 7,9 dropped
+RULE PhysicalActivity <- EXERANY2 : 1 Yes, 2 No; 7,9 dropped
+RULE GenHealth <- GENHLTH : 1-5 labels; 7,9 dropped
+RULE SleepTime <- SLEPTIM1 : 1-24 kept; 77,99 dropped
+RULE Asthma <- ASTHMA3 : ever told asthma: 1 Yes, 2 No; 7,9 dropped
+RULE KidneyDisease <- CHCKDNY2 : 1 Yes, 2 No; 7,9 dropped
+RULE SkinCancer <- CHCSCNCR : 1 Yes, 2 No; 7,9 dropped
+missing after recode per column: {'HeartDisease': 3571, 'BMI': 41357, 'Smoking': 20673, 'AlcoholDrinking': 30691, 'Stroke': 1186, 'PhysicalHealth': 8691, 'MentalHealth': 7929, 'DiffWalking': 16759, 'Sex': 0, 'AgeCategory': 8257, 'Race': 0, 'Diabetic': 814, 'PhysicalActivity': 682, 'GenHealth': 961, 'SleepTime': 4694, 'Asthma': 1367, 'KidneyDisease': 1516, 'SkinCancer': 1275}
+complete cases 319795 of 401958 share kept 0.7955
+kaggle full (319795, 18) duplicate rows 18078
+multiset match rebuild complete cases vs heart_2020_cleaned: rebuild rows 319795 kaggle rows 319795 matched 319795 rate vs kaggle 1.0 | patterns 301717 abs row diff 0
+rebuild complete cases duplicate rows 18078
+
+== LABEL ==
+CVDINFR4 (rows, MI) x CVDCRHD4 (cols, CHD/angina), all respondents
+ CVDCRHD4  -1      1       2     7    9     All
+CVDINFR4                                      
+-1         3      1       2     0    0       6
+1          0  10392   10630   921   14   21957
+2          0  11901  364224  1722   71  377918
+7          0    291    1146   317    7    1761
+9          0     13      56     2  245     316
+All        3  22598  376058  2962  337  401958
+_MICHD NaN 3571 of which one item No and the other DK/refused/missing 2997
+label composition among _MICHD=1 (all respondents): MI only 11565 CHD/angina only 12206 both 10392
+CHD-or-MI (_MICHD) prevalence all valid _MICHD respondents n=398387: unweighted 0.0857 weighted 0.0648 design SE 0.0008
+CHD-or-MI (_MICHD) prevalence file population (complete cases) n=319795: unweighted 0.0855 weighted 0.0648 design SE 0.0009
+
+== RACE ==
+raw race in file population ( _RACE ) x file race:
+ Race   American Indian/Alaskan Native  Asian  Black  Hispanic  Other   White
+_RACE                                                                       
+1                                   0      0      0         0      0  241215
+2                                   0      0  22829         0      0       0
+3                                5125      0      0         0      0       0
+4                                   0   8009      0         0      0       0
+5                                   0      0      0         0   1667       0
+6                                   0      0      0         0   2326       0
+7                                   0      0      0         0   6710       0
+8                                   0      0      0     27404      0       0
+9                                  77     59    110        42    225    3997
+file rows whose race is CDC-imputed (_RACE = 9 DK/refused or missing) 4510 of 319795
+file 'Other' rows by _RACE: NHPI(5) 1667 other(6) 2326 multiracial(7) 6710 DK/refused imputed(9) 225
+ imputed-race rows by assigned Race {'White': 3997, 'Other': 225, 'Black': 110, 'American Indian/Alaskan Native': 77, 'Asian': 59, 'Hispanic': 42} | CHD-or-MI unweighted in imputed rows 0.0975 vs non-imputed 0.0854
+
+== ROW LOSS BY GROUP (complete-case drop) ==
+race (_IMPRACE)
+ race  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+    1 303886  245212    0.8069  0.8034         0.0919       0.0751          0.0917        0.0750
+    2  30390   22939    0.7548  0.7562         0.0774       0.0574          0.0753        0.0547
+    3  10243    8068    0.7876  0.7544         0.0327       0.0221          0.0329        0.0235
+    4   6954    5202    0.7480  0.7334         0.1045       0.0852          0.1041        0.0851
+    5  36408   27446    0.7538  0.7467         0.0526       0.0457          0.0525        0.0453
+    6  14077   10928    0.7763  0.7623         0.0852       0.0654          0.0810        0.0633
+  Cohen h of retained share (max-min): unweighted 0.1417 weighted 0.1663
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.0115
+  group share: weighted population {1: 0.6175, 2: 0.1175, 3: 0.0561, 4: 0.0099, 5: 0.1776, 6: 0.0209} | unweighted file {1: 0.7667, 2: 0.0717, 3: 0.0252, 4: 0.0162, 5: 0.0858, 6: 0.0341} | max Cohen h (pop weighted vs file unweighted) 0.3254
+age group _AGEG5YR
+ ageg  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+    1  25648   21064    0.8212  0.8071         0.0070       0.0067          0.0061        0.0059
+    2  20911   16955    0.8108  0.7916         0.0083       0.0105          0.0078        0.0085
+    3  23408   18753    0.8011  0.7834         0.0129       0.0126          0.0120        0.0115
+    4  25492   20550    0.8061  0.7901         0.0154       0.0166          0.0144        0.0162
+    5  25729   21006    0.8164  0.8040         0.0244       0.0259          0.0231        0.0239
+    6  26428   21791    0.8245  0.8078         0.0358       0.0368          0.0341        0.0369
+    7  31110   25382    0.8158  0.8054         0.0556       0.0572          0.0544        0.0576
+    8  36219   29757    0.8215  0.8118         0.0738       0.0701          0.0739        0.0709
+    9  41151   33686    0.8185  0.8087         0.0986       0.1014          0.0987        0.1030
+   10  41570   34151    0.8215  0.8032         0.1203       0.1238          0.1200        0.1260
+   11  37972   31065    0.8181  0.8081         0.1560       0.1651          0.1560        0.1671
+   12  26607   21482    0.8073  0.7882         0.1876       0.1877          0.1884        0.1930
+   13  31456   24153    0.7678  0.7564         0.2252       0.2212          0.2256        0.2136
+  Cohen h of retained share (max-min): unweighted 0.141 weighted 0.1349
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.0201
+  group share: weighted population {1: 0.1205, 2: 0.0804, 3: 0.0929, 4: 0.0787, 5: 0.0809, 6: 0.067, 7: 0.081, 8: 0.0779, 9: 0.0847, 10: 0.0667, 11: 0.0599, 12: 0.0422, 13: 0.0471} | unweighted file {1: 0.0658, 2: 0.053, 3: 0.0586, 4: 0.0642, 5: 0.0656, 6: 0.0681, 7: 0.0793, 8: 0.093, 9: 0.1053, 10: 0.1067, 11: 0.0971, 12: 0.0671, 13: 0.0755} | max Cohen h (pop weighted vs file unweighted) 0.19
+sex
+ SEXVAR  n_raw  n_file  kept_unw  kept_w  chdmi_all_unw  chdmi_all_w  chdmi_file_unw  chdmi_file_w
+      1 183942  151990    0.8262  0.8094         0.1069       0.0786          0.1061        0.0790
+      2 218016  167805    0.7696  0.7587         0.0679       0.0517          0.0669        0.0503
+  Cohen h of retained share (max-min): unweighted 0.1412 weighted 0.1234
+  max within-group Cohen h, CHD-or-MI weighted all vs file 0.006
+  group share: weighted population {1: 0.4871, 2: 0.5128} | unweighted file {1: 0.4752, 2: 0.5247} | max Cohen h (pop weighted vs file unweighted) 0.0236
+
+== WHICH COLUMNS DRIVE THE DROP ==
+rows dropped 82163 | dropped because of exactly one column: {'BMI': 21222, 'AlcoholDrinking': 8509, 'PhysicalHealth': 4289, 'MentalHealth': 3610, 'AgeCategory': 3246, 'SleepTime': 2145, 'HeartDisease': 1980, 'Smoking': 1544, 'KidneyDisease': 708, 'Asthma': 674, 'DiffWalking': 670, 'SkinCancer': 662, 'Stroke': 483, 'GenHealth': 370, 'PhysicalActivity': 292, 'Diabetic': 275}
+saved work/rebuild2020.pkl | P1 rebuild: {'full': 'PASS 1.0'}

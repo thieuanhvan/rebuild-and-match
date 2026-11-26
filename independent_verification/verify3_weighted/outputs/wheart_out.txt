@@ -1,0 +1,58 @@
+2020 raw rows 401958 ; Kaggle rows 319795
+rebuild rows 319795 multiset match 1.0 differing tuples 0
+Kaggle 2020 exact duplicate rows beyond first 18078 share 0.0565 ; rebuild duplicates 18078
+unweighted HeartDisease=Yes 27373 / 319795 = 0.0855
+_MICHD codes {2.0: np.int64(364224), 1.0: np.int64(34163), nan: np.int64(3571)} ; valid 398387
+2020 _MICHD, all valid respondents: n=398387 weighted p=0.064820 (trunc 0.0648) SE domain=0.000843 (trunc 0.0008); strata 1601, singleton 27
+   subset-only design: p=0.064820 SE=0.000843 (trunc 0.0008); strata 1599, singleton 26
+2020 _MICHD, file population: n=319795 weighted p=0.064804 (trunc 0.0648) SE domain=0.000931 (trunc 0.0009); strata 1601, singleton 27
+   subset-only design: p=0.064804 SE=0.000930 (trunc 0.0009); strata 1593, singleton 33
+
+2020 Race=Other rows: rebuild 10928 ; Kaggle 10928
+ _RACE among rebuild Other (5 NHPI, 6 other race only, 7 multiracial, 9 DK/refused): {5.0: np.int64(1667), 6.0: np.int64(2326), 7.0: np.int64(6710), 9.0: np.int64(225)}
+ _IMPRACE vs _RACE crosstab in file rows:
+ _IMPRACE     1.0    2.0   3.0   4.0    5.0   6.0
+_RACE                                           
+1.0       241215      0     0     0      0     0
+2.0            0  22829     0     0      0     0
+3.0            0      0     0  5125      0     0
+4.0            0      0  8009     0      0     0
+5.0            0      0     0     0      0  1667
+6.0            0      0     0     0      0  2326
+7.0            0      0     0     0      0  6710
+8.0            0      0     0     0  27404     0
+9.0         3997    110    59    77     42   225
+
+2022 raw rows 445132 with_nans 445132 no_nans 246022
+alignment: crosstab raw CVDINFR4 vs with_nans HadHeartAttack
+ HadHeartAttack   NaN      No    Yes
+CVDINFR4                           
+-1.0               4       0      0
+ 1.0               0       0  25108
+ 2.0               0  416959      0
+ 7.0            2731       0      0
+ 9.0             330       0      0
+alignment: crosstab raw CVDCRHD4 vs with_nans HadAngina
+ HadAngina   NaN      No    Yes
+CVDCRHD4                      
+-1.0          2       0      0
+ 1.0          0       0  26551
+ 2.0          0  414176      0
+ 7.0       4044       0      0
+ 9.0        359       0      0
+with_nans: exact duplicate rows beyond first 157 (NaN treated as equal), share 0.0003
+no_nans: exact duplicate rows beyond first 9 (NaN treated as equal), share 0.0
+with_nans complete rows duplicates 9
+
+no_nans: HadHeartAttack Yes 13435 ; No 232587 ; unweighted rate 0.0546
+ HadAngina Yes | HA Yes 6772 ; HadAngina Yes | HA No 8181
+ 2020-style positives (HA or angina): 21616 ; of which HA No 8181 ; share 0.37846965210954847 trunc 0.3784
+ complete cases of with_nans 246022 ; raw _MICHD==1 among them 21616 ; raw CVDINFR4==1 or CVDCRHD4==1 among them 21616
+CVDINFR4 codes {2.0: np.int64(416959), 1.0: np.int64(25108), 7.0: np.int64(2731), 9.0: np.int64(330), nan: np.int64(4)} ; valid 442067
+2022 CVDINFR4=1, all valid respondents: n=442067 weighted p=0.044156 (trunc 0.0441) SE domain=0.000619 (trunc 0.0006); strata 2263, singleton 110
+   subset-only design: p=0.044156 SE=0.000619 (trunc 0.0006); strata 2262, singleton 109
+2022 CVDINFR4=1, complete-case population: n=246022 weighted p=0.042945 (trunc 0.0429) SE domain=0.000798 (trunc 0.0007); strata 2263, singleton 110
+   subset-only design: p=0.042945 SE=0.000796 (trunc 0.0007); strata 2187, singleton 129
+
+Arithmetic: 445132-246022 = 199110 ; 98073/199110 = 0.4925568781075787 trunc 0.4925
+ 18078/319795 trunc 0.0565 ; 401958-319795 = 82163

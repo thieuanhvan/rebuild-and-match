@@ -1,0 +1,18 @@
+raw rows 438693
+kaggle rows 308854
+examples [40.0, 0.0, 96.0]
+rebuilt rows 308854
+rows only in rebuild 0 only in kaggle 0
+multiset equal True
+Fruit_Consumption dist equal True n40 2003 n210 0 max 120.0 n>128 0 nunique 77
+Green_Vegetables_Consumption dist equal True n40 955 n210 0 max 128.0 n>128 0 nunique 75
+FriedPotato_Consumption dist equal True n40 234 n210 0 max 128.0 n>128 0 nunique 69
+complete under correct coding 336651
+nonexclusive: code300 15097 cap 5480 phys/ment 8318
+sequential: code300 15097 cap 5101 phys/ment 7599
+kept 308854 removed 27797
+HD share removed 0.1092 HD share file 0.0808 HD kept 0.0808
+kept rows with >=1 wrong consumption value 1666
+  Fruit_Consumption 1055
+  Green_Vegetables_Consumption 738
+  FriedPotato_Consumption 150

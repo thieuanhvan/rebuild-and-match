@@ -1,0 +1,56 @@
+Kaggle 012 rows 253680
+  Diabetes_012 3 [np.float64(0.0), np.float64(1.0), np.float64(2.0)] 
+  HighBP 2 [np.float64(0.0), np.float64(1.0)] 
+  HighChol 2 [np.float64(0.0), np.float64(1.0)] 
+  CholCheck 2 [np.float64(0.0), np.float64(1.0)] 
+  BMI 84 [np.float64(12.0), np.float64(13.0), np.float64(14.0), np.float64(15.0), np.float64(16.0), np.float64(17.0), np.float64(18.0), np.float64(19.0), np.float64(20.0), np.float64(21.0), np.float64(22.0), np.float64(23.0)] ...
+  Smoker 2 [np.float64(0.0), np.float64(1.0)] 
+  Stroke 2 [np.float64(0.0), np.float64(1.0)] 
+  HeartDiseaseorAttack 2 [np.float64(0.0), np.float64(1.0)] 
+  PhysActivity 2 [np.float64(0.0), np.float64(1.0)] 
+  Fruits 2 [np.float64(0.0), np.float64(1.0)] 
+  Veggies 2 [np.float64(0.0), np.float64(1.0)] 
+  HvyAlcoholConsump 2 [np.float64(0.0), np.float64(1.0)] 
+  AnyHealthcare 2 [np.float64(0.0), np.float64(1.0)] 
+  NoDocbcCost 2 [np.float64(0.0), np.float64(1.0)] 
+  GenHlth 5 [np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0)] 
+  MentHlth 31 [np.float64(0.0), np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0), np.float64(6.0), np.float64(7.0), np.float64(8.0), np.float64(9.0), np.float64(10.0), np.float64(11.0)] ...
+  PhysHlth 31 [np.float64(0.0), np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0), np.float64(6.0), np.float64(7.0), np.float64(8.0), np.float64(9.0), np.float64(10.0), np.float64(11.0)] ...
+  DiffWalk 2 [np.float64(0.0), np.float64(1.0)] 
+  Sex 2 [np.float64(0.0), np.float64(1.0)] 
+  Age 13 [np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0), np.float64(6.0), np.float64(7.0), np.float64(8.0), np.float64(9.0), np.float64(10.0), np.float64(11.0), np.float64(12.0)] ...
+  Education 6 [np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0), np.float64(6.0)] 
+  Income 8 [np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(5.0), np.float64(6.0), np.float64(7.0), np.float64(8.0)] 
+raw 2015 rows 441456
+ raw DIABETE3 n_unique 7 NaN 7 {3.0: np.int64(372104), 1.0: np.int64(57256), 4.0: np.int64(7690), 2.0: np.int64(3608), 7.0: np.int64(598), 9.0: np.int64(193), nan: np.int64(7)}
+ raw _RFHYPE5 n_unique 3 NaN 0 {1.0: np.int64(261901), 2.0: np.int64(178188), 9.0: np.int64(1367)}
+ raw TOLDHI2 n_unique 5 NaN 59154 {2.0: np.int64(218771), 1.0: np.int64(159970), nan: np.int64(59154), 7.0: np.int64(3037), 9.0: np.int64(524)}
+ raw _CHOLCHK n_unique 4 NaN 0 {1.0: np.int64(362923), 3.0: np.int64(49673), 9.0: np.int64(15337), 2.0: np.int64(13523)}
+ raw _BMI5 n_unique 3737 NaN 36398 min 1202.0 max 9995.0
+ raw SMOKE100 n_unique 5 NaN 14255 {2.0: np.int64(239608), 1.0: np.int64(184299), nan: np.int64(14255), 7.0: np.int64(1832), 9.0: np.int64(1462)}
+ raw CVDSTRK3 n_unique 4 NaN 0 {2.0: np.int64(421897), 1.0: np.int64(18269), 7.0: np.int64(1146), 9.0: np.int64(144)}
+ raw _MICHD n_unique 3 NaN 3942 {2.0: np.int64(398881), 1.0: np.int64(38633), nan: np.int64(3942)}
+ raw _TOTINDA n_unique 3 NaN 0 {1.0: np.int64(296020), 2.0: np.int64(107444), 9.0: np.int64(37992)}
+ raw _FRTLT1 n_unique 3 NaN 0 {1.0: np.int64(247817), 2.0: np.int64(149928), 9.0: np.int64(43711)}
+ raw _VEGLT1 n_unique 3 NaN 0 {1.0: np.int64(309561), 2.0: np.int64(80778), 9.0: np.int64(51117)}
+ raw _RFDRHV5 n_unique 3 NaN 0 {1.0: np.int64(393658), 9.0: np.int64(25733), 2.0: np.int64(22065)}
+ raw HLTHPLN1 n_unique 4 NaN 0 {1.0: np.int64(407556), 2.0: np.int64(32060), 7.0: np.int64(1052), 9.0: np.int64(788)}
+ raw MEDCOST n_unique 5 NaN 1 {2.0: np.int64(396748), 1.0: np.int64(43514), 7.0: np.int64(945), 9.0: np.int64(248), nan: np.int64(1)}
+ raw GENHLTH n_unique 8 NaN 2 {2.0: np.int64(145065), 3.0: np.int64(136975), 1.0: np.int64(76032), 4.0: np.int64(58962), 5.0: np.int64(23175), 7.0: np.int64(799), 9.0: np.int64(446), nan: np.int64(2)}
+ raw MENTHLTH n_unique 33 NaN 0 {88.0: np.int64(301076), 30.0: np.int64(22184), 2.0: np.int64(21229), 5.0: np.int64(14749), 1.0: np.int64(13658), 3.0: np.int64(12253), 10.0: np.int64(10684), 15.0: np.int64(9795), 4.0: np.int64(6259), 20.0: np.int64(5944), 7.0: np.int64(5667), 77.0: np.int64(5204)}
+ raw PHYSHLTH n_unique 34 NaN 1 {88.0: np.int64(274143), 30.0: np.int64(34225), 2.0: np.int64(24369), 1.0: np.int64(18245), 3.0: np.int64(14242), 5.0: np.int64(12472), 10.0: np.int64(9217), 15.0: np.int64(8356), 7.0: np.int64(7958), 77.0: np.int64(7664), 4.0: np.int64(7562), 20.0: np.int64(5464)}
+ raw DIFFWALK n_unique 5 NaN 12334 {2.0: np.int64(352198), 1.0: np.int64(74664), nan: np.int64(12334), 7.0: np.int64(1346), 9.0: np.int64(914)}
+ raw SEX n_unique 2 NaN 0 {2.0: np.int64(254518), 1.0: np.int64(186938)}
+ raw _AGEG5YR n_unique 14 NaN 0 {9.0: np.int64(49794), 10.0: np.int64(49264), 8.0: np.int64(46209), 7.0: np.int64(39881), 11.0: np.int64(38362), 13.0: np.int64(36760), 6.0: np.int64(30276), 12.0: np.int64(28232), 5.0: np.int64(25942), 4.0: np.int64(24545), 1.0: np.int64(24192), 3.0: np.int64(22917)}
+ raw EDUCA n_unique 7 NaN 0 {6.0: np.int64(161631), 4.0: np.int64(123227), 5.0: np.int64(120528), 3.0: np.int64(22463), 2.0: np.int64(11187), 9.0: np.int64(1811), 1.0: np.int64(609)}
+ raw INCOME2 n_unique 11 NaN 3301 {8.0: np.int64(115312), 7.0: np.int64(58130), 6.0: np.int64(52052), 99.0: np.int64(40946), 5.0: np.int64(39235), 77.0: np.int64(35258), 4.0: np.int64(32377), 3.0: np.int64(26797), 2.0: np.int64(19599), 1.0: np.int64(18449), nan: np.int64(3301)}
+
+mode=pandas_round: rebuilt rows 253680; multiset match 1.0; distinct tuples with different counts 0
+
+mode=half_up: rebuilt rows 253680; multiset match 0.9933853673919899; distinct tuples with different counts 3282
+
+Results (pandas_round build):
+ kept DIABETE3==2 (gestational only): 1978
+ kept DIABETE3==4 (prediabetes): 4631 ; Diabetes_012==1 in Kaggle: 4631
+ kept DIABETE3==1: 35346 ; DIABETE3==3: 211725
+ retention 253680 / 441456 = 0.5746 (truncated)

@@ -1,0 +1,14 @@
+raw respondents 438693 | file rows 308854 0.704
+Fruit_Consumption rows with a wrong value in file 1055 0.0034 | raw codes: {107.0: 892, 110.0: 96, 299.0: 24, 112.0: 19, 111.0: 14, 113.0: 2, 294.0: 2, 293.0: 2}
+Green_Vegetables_Consumption rows with a wrong value in file 738 0.0023 | raw codes: {107.0: 655, 110.0: 33, 299.0: 32, 111.0: 8, 112.0: 5, 294.0: 3, 292.0: 1, 288.0: 1}
+FriedPotato_Consumption rows with a wrong value in file 150 0.0004 | raw codes: {107.0: 111, 110.0: 23, 299.0: 8, 292.0: 3, 112.0: 3, 291.0: 1, 295.0: 1}
+rows with >=1 wrong consumption value 1666 0.0053
+complete under correct coding 336651
+excluded: any "less than once a month" answer (code 300) 15097
+excluded: buggy value >128 5480
+excluded: PHYSHLTH/MENTHLTH dk/refused/missing (not in file) 8318
+total excluded from correct complete set 27797
+file n 308854 heart 0.0808 age80+ 0.0721 fair/poor 0.1526 diabetes yes 0.13
+excluded n 27797 heart 0.1092 age80+ 0.1287 fair/poor 0.2412 diabetes yes 0.1555
+weighted heart prev all valid _MICHD 0.0613 | file unweighted 0.0808
+weights/strata/psu in file: none (19 columns)

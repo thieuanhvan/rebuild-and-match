@@ -1,0 +1,128 @@
+P9 CONSEQUENCE LAYER - PRE-STATED RULE (written before any model is fitted)
+Paper: P9, construction audit of two BRFSS-derived benchmark files (diabetes 2015; heart 2020/2022).
+Question: how much do the construction defects change what a typical user of the file would conclude?
+Scope: unweighted analyses only (that is how users use the files). No survey-weighted analysis
+(the weighted fairness precision result in i336deep/data_note_plan_i336.md is NOT redone).
+Descriptive and predictive only; nothing below is a causal claim.
+
+======================================================================
+COMMON SETTINGS
+======================================================================
+Python: python -I -X utf8, below-normal priority, n_jobs <= 4, at most 2 heavy processes.
+Seeds: s in {20261125, 20261126, 20261127, 20261128, 20261129} (5 seeds).
+Split: per seed, stratified 70/30 train/test (sklearn train_test_split, random_state = s).
+  Diabetes: stratified on Diabetes_012 (3 classes), so prediabetes is spread evenly.
+  Heart 2022: stratified on the 4-level combination of HadHeartAttack x HadAngina.
+  Heart 2020: stratified on HeartDisease.
+Models (exactly two families, "default-ish" settings as most papers use them):
+  LR   = LogisticRegression(C=1.0, solver='lbfgs', max_iter=3000) after StandardScaler on numeric
+         columns; categorical columns (heart files) one-hot encoded (handle_unknown='ignore').
+         Diabetes file: all 21 columns treated as numeric (as distributed), standardized.
+  LGBM = lightgbm.LGBMClassifier(n_estimators=100, learning_rate=0.1, num_leaves=31,
+         random_state=s, n_jobs=4, verbose=-1); categorical columns ordinal-encoded to integer codes.
+Metrics:
+  AUC (ROC AUC); calibration-in-the-large CITL = mean predicted probability - observed event rate
+  on the test set; sensitivity = share of a group flagged positive.
+Thresholds: (t1) 0.5; (t2) "prevalence threshold" = the (1 - p) quantile of the model's predicted
+  probabilities on its own TRAINING set, p = training prevalence of the label the model was fitted on
+  (so the share flagged equals the file prevalence).
+Feature importance: sklearn permutation_importance on the fitted pipeline with raw (pre-encoding)
+  columns permuted, scoring='roc_auc', n_repeats=5, random_state=s, on a random subsample of
+  30,000 test rows (seed s). Ranking by mean importance (ties broken by column order).
+  Summaries: top-10 overlap (|top10_X intersect top10_Y|) and Kendall tau-b over all features.
+Uncertainty / noise floor:
+  - 5-seed results: report median and min-max range.
+  - Seed noise floor for an AUC quantity = max - min over the 5 seeds of the reference model's AUC.
+  - Paired bootstrap on the seed-20261125 test set, B = 200 resamples (rng seed 20261125),
+    percentile 95% CI for AUC differences.
+  - Proportions within a group (e.g. sensitivity among prediabetes respondents): Wilson 95% CI,
+    reported per seed.
+  - Logistic-regression odds ratios (Q3): Wald 95% CI from statsmodels Logit on the full file.
+Numbers truncated (not rounded) to 4 decimals.
+
+General AUC materiality rule (used wherever "AUC rule" is cited below):
+  An AUC difference D (paired, same split) is MATERIAL if all three hold:
+   (a) |median_5seeds(D)| >= 0.01;
+   (b) |median_5seeds(D)| > seed noise floor of the reference model's AUC;
+   (c) paired bootstrap 95% CI of D on the seed-20261125 test set excludes 0.
+  NOT MATERIAL if (a) fails and the bootstrap CI lies inside (-0.01, 0.01).
+  Otherwise INCONCLUSIVE.
+
+======================================================================
+Q1  DIABETES FILE (BRFSS 2015, Kaggle diabetes_012, 253,680 rows)
+======================================================================
+Labels: ACTUAL y_A = (Diabetes_012 == 2) [this is Diabetes_binary as distributed];
+        DOCUMENTED y_D = (Diabetes_012 in {1,2}) ["prediabetes or diabetes"].
+Features: the 21 columns other than the label (same as the binary file).
+Fits per seed: LR_A, LGBM_A (on y_A); LR_D, LGBM_D (on y_D). 4 fits x 5 seeds.
+
+Q1a (prediabetes respondents under the actual label). For LR_A and LGBM_A at t1 and t2:
+  sensitivity among test respondents with Diabetes_012 == 1 (prediabetes, ~1,389 per test set),
+  among Diabetes_012 == 2 (diabetes), and the false-positive share among Diabetes_012 == 0;
+  plus the sensitivity a documentation-trusting reader would compute against y_D,
+  Sens_D(model_A) = flagged among {1,2} / n{1,2}, next to Sens_A(model_A) = flagged among {2} / n{2}.
+  Criterion MATERIAL if BOTH:
+   (i) for both models at both thresholds, in all 5 seeds, the Wilson upper bound of sensitivity among
+       prediabetes respondents is below the Wilson lower bound of sensitivity among diabetes respondents;
+   (ii) Sens_A(model_A) - Sens_D(model_A) >= 0.02 for both models at t2 in all 5 seeds.
+  NOT MATERIAL if neither holds; INCONCLUSIVE if only one holds.
+
+Q1b (documented vs actual label: AUC). Report AUC(model_A on y_A), AUC(model_D on y_D), and the
+  cross-evaluations AUC(model_A on y_D), AUC(model_D on y_A). Primary contrast per family:
+  D1 = AUC(model_D on y_D) - AUC(model_A on y_A) (what a reader would report under each label).
+  Reference model for noise floor: model_A on y_A. Verdict by the AUC rule (either family material
+  -> MATERIAL; both not material -> NOT MATERIAL).
+
+Q1c (calibration-in-the-large). CITL of model_A against y_D (what a reader trusting the documented
+  label would observe) and against y_A; same for model_D. Also mean predicted risk of model_A vs
+  model_D. Criterion MATERIAL if |CITL(model_A vs y_D)| >= 0.01 in all 5 seeds for both families.
+  (Note pre-stated: this is close to arithmetic, since 4,631/253,680 = 0.0182; reported for
+  completeness, not as an independent finding.)
+
+Q1d (feature ranking). Permutation importance for model_A (on y_A) and model_D (on y_D), same seed.
+  Within-label reproducibility floor: top-10 overlap between model_A of seed k and model_A of seed
+  k+1 (k = 1..4), minimum over pairs.
+  Criterion MATERIAL (per family) if median over seeds of top-10 overlap(A, D) < 7 AND below the
+  within-label minimum. NOT MATERIAL if median overlap >= 8 or >= the within-label minimum.
+  Otherwise INCONCLUSIVE. Kendall tau-b reported descriptively. Overall: material if either family.
+
+======================================================================
+Q2  HEART FILE (BRFSS 2022, Kaggle heart_2022_no_nans, 246,022 rows)
+======================================================================
+Fits per seed (both families):
+  M1: HadHeartAttack ~ all 39 other columns (includes HadAngina) [as distributed].
+  M2: HadHeartAttack ~ 38 columns (HadAngina removed).
+  M3: y20 = HadHeartAttack OR HadAngina (the 2020 MI-or-CHD definition, as reconstructed in the
+      manuscript: 21,616 positives) ~ 37 columns (HadHeartAttack and HadAngina removed).
+Q2a (angina co-feature). D2 = AUC(M1) - AUC(M2) on HadHeartAttack, reference model M2.
+  Plus: HadAngina rank and share of summed positive permutation importance in M1.
+  Criterion MATERIAL if the AUC rule holds for D2 in either family, OR HadAngina is ranked 1st in
+  >= 4/5 seeds with share >= 0.25 (median) in either family. NOT MATERIAL if the AUC rule gives NOT
+  MATERIAL for both families and HadAngina is not ranked 1st in any seed. Otherwise INCONCLUSIVE.
+Q2b (label drift 2020 vs 2022 definition). Prevalence of y20 vs HadHeartAttack in the file;
+  D3 = AUC(M3 on y20) - AUC(M2 on HadHeartAttack), reference M2. Cross-evaluation:
+  AUC(M2 on y20), AUC(M3 on HadHeartAttack). Verdict by the AUC rule on D3 (either family).
+  Prevalence change reported (0.0546 vs 0.0878 expected) without a threshold (it is arithmetic).
+Descriptive only (no verdict): LR and LGBM on heart_2020_cleaned (HeartDisease ~ 17 columns),
+  5 seeds, AUC, to show what a user comparing "heart disease" AUC across versions sees.
+
+======================================================================
+Q3  ALCOHOL VARIABLE (heart 2020 AlcoholDrinking vs heart 2022 AlcoholDrinkers)
+======================================================================
+Full files, unweighted, statsmodels Logit:
+  2020: HeartDisease ~ AlcoholDrinking (crude); + AgeCategory (categorical, reference = youngest)
+        + Sex (adjusted).
+  2022 (heart_2022_no_nans): HadHeartAttack ~ AlcoholDrinkers (crude; adjusted as above).
+  Secondary 2022: y20 ~ AlcoholDrinkers (crude; adjusted), to separate label change from
+        variable change.
+Report: Yes-prevalence of each alcohol variable, outcome rate by Yes/No, OR with Wald 95% CI.
+Criterion MATERIAL if (i) the adjusted OR 95% CIs of 2020 and 2022 (primary outcomes) do not
+  overlap, OR (ii) within one version, crude and adjusted ORs lie on opposite sides of 1 with both
+  CIs excluding 1. NOT MATERIAL if the adjusted CIs overlap and no sign change occurs.
+  Stated as descriptive associations, not causal effects.
+
+======================================================================
+OUTPUT
+======================================================================
+tools/q1_diabetes.py, tools/q2q3_heart.py; out/*.json and out/*_log.txt; consequence_report.md.
+Any deviation from this rule is listed in the report under "Deviations".

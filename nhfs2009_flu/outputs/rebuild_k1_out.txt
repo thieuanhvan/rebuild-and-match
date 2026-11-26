@@ -1,0 +1,101 @@
+adults 56656
+kaggle train 26707 test 26708 total 53415
+
+== marginals: column, kaggle counts vs rebuild counts (all adults) ==
+h1n1_concern 
+  K {0.0: 6495, 1.0: 16311, 2.0: 21318, 3.0: 9114, nan: 177} 
+  R {0.0: 6906, 1.0: 17287, 2.0: 22569, 3.0: 9687, nan: 207}
+h1n1_knowledge 
+  K {0.0: 4948, 1.0: 29227, 2.0: 19002, nan: 238} 
+  R {0.0: 5385, 1.0: 31006, 2.0: 19999, nan: 266}
+behavioral_antiviral_meds 
+  K {0.0: 50642, 1.0: 2623, nan: 150} 
+  R {0.0: 53689, 1.0: 2792, nan: 175}
+behavioral_avoidance 
+  K {0.0: 14430, 1.0: 38564, nan: 421} 
+  R {0.0: 15363, 1.0: 40831, nan: 462}
+behavioral_face_mask 
+  K {0.0: 49687, 1.0: 3690, nan: 38} 
+  R {0.0: 52694, 1.0: 3921, nan: 41}
+behavioral_wash_hands 
+  K {0.0: 9288, 1.0: 44045, nan: 82} 
+  R {0.0: 9888, 1.0: 46671, nan: 97}
+behavioral_large_gatherings 
+  K {0.0: 34346, 1.0: 18910, nan: 159} 
+  R {0.0: 36422, 1.0: 20064, nan: 170}
+behavioral_outside_home 
+  K {0.0: 35291, 1.0: 17960, nan: 164} 
+  R {0.0: 37369, 1.0: 19105, nan: 182}
+behavioral_touch_face 
+  K {0.0: 16984, 1.0: 36175, nan: 256} 
+  R {0.0: 18053, 1.0: 38321, nan: 282}
+doctor_recc_h1n1 
+  K {0.0: 38221, 1.0: 10874, nan: 4320} 
+  R {0.0: 40546, 1.0: 11474, nan: 4636}
+doctor_recc_seasonal 
+  K {0.0: 32813, 1.0: 16282, nan: 4320} 
+  R {0.0: 34809, 1.0: 17211, nan: 4636}
+chronic_med_condition 
+  K {0.0: 36978, 1.0: 14534, nan: 1903} 
+  R {0.0: 39202, 1.0: 15389, nan: 2065}
+child_under_6_months 
+  K {0.0: 47409, 1.0: 4373, nan: 1633} 
+  R {0.0: 50267, 1.0: 4623, nan: 1766}
+health_worker 
+  K {0.0: 46033, 1.0: 5789, nan: 1593} 
+  R {0.0: 48833, 1.0: 6098, nan: 1725}
+health_insurance 
+  K {0.0: 3359, 1.0: 25554, nan: 24502} 
+  R {0.0: 3585, 1.0: 27115, nan: 25956}
+opinion_h1n1_vacc_effective 
+  K {1.0: 1807, 2.0: 3658, 3.0: 9513, 4.0: 23417, 5.0: 14231, nan: 789} 
+  R {1.0: 1923, 2.0: 3875, 3.0: 10106, 4.0: 24791, 5.0: 15101, nan: 860}
+opinion_h1n1_risk 
+  K {1.0: 16346, 2.0: 19861, 3.0: 2347, 4.0: 10659, 5.0: 3434, nan: 768} 
+  R {1.0: 17360, 2.0: 20994, 3.0: 2524, 4.0: 11290, 5.0: 3641, nan: 847}
+opinion_h1n1_sick_from_vacc 
+  K {1.0: 17933, 2.0: 18306, 3.0: 309, 4.0: 11760, 5.0: 4337, nan: 770} 
+  R {1.0: 19018, 2.0: 19390, 3.0: 335, 4.0: 12484, 5.0: 4576, nan: 853}
+opinion_seas_vacc_effective 
+  K {1.0: 2373, 2.0: 4490, 3.0: 2537, 4.0: 23131, 5.0: 19970, nan: 914} 
+  R {1.0: 2520, 2.0: 4772, 3.0: 2718, 4.0: 24489, 5.0: 21151, nan: 1006}
+opinion_seas_risk 
+  K {1.0: 11913, 2.0: 18026, 3.0: 1413, 4.0: 15239, 5.0: 5811, nan: 1013} 
+  R {1.0: 12650, 2.0: 19094, 3.0: 1514, 4.0: 16127, 5.0: 6157, nan: 1114}
+opinion_seas_sick_from_vacc 
+  K {1.0: 23447, 2.0: 15422, 3.0: 186, 4.0: 9799, 5.0: 3503, nan: 1058} 
+  R {1.0: 24816, 2.0: 16379, 3.0: 202, 4.0: 10377, 5.0: 3719, nan: 1163}
+age_group 
+  K {'18 - 34 Years': 10449, '35 - 44 Years': 7818, '45 - 54 Years': 10495, '55 - 64 Years': 11092, '65+ Years': 13561} 
+  R {'18 - 34 Years': 11071, '35 - 44 Years': 8270, '45 - 54 Years': 11096, '55 - 64 Years': 11719, '65+ Years': 14500}
+education 
+  K {'12 Years': 11496, '< 12 Years': 4699, 'College Graduate': 20283, 'Some College': 14123, nan: 2814} 
+  R {'12 Years': 12214, '< 12 Years': 5065, 'College Graduate': 21423, 'Some College': 14931, nan: 3023}
+race 
+  K {'Black': 4292, 'Hispanic': 3458, 'Other or Multiple': 3142, 'White': 42523} 
+  R {'Black': 4580, 'Hispanic': 3689, 'Other or Multiple': 3338, 'White': 45049}
+sex 
+  K {'Female': 31692, 'Male': 21723} 
+  R {'Female': 33572, 'Male': 23084}
+income_poverty 
+  K {'<= $75,000, Above Poverty': 25552, '> $75,000': 13673, 'Below Poverty': 5270, nan: 8920} 
+  R {'<= $75,000, Above Poverty': 27061, '> $75,000': 14416, 'Below Poverty': 5623, nan: 9556}
+marital_status 
+  K {'Married': 27103, 'Not Married': 23462, nan: 2850} 
+  R {'Married': 28611, 'Not Married': 24984, nan: 3061}
+rent_or_own 
+  K {'Own': 37457, 'Rent': 11880, nan: 4078} 
+  R {'Own': 39638, 'Rent': 12634, nan: 4384}
+employment_status 
+  K {'Employed': 27192, 'Not in Labor Force': 20323, 'Unemployed': 2966, nan: 2934} 
+  R {'Employed': 28710, 'Not in Labor Force': 21649, 'Unemployed': 3142, nan: 3155}
+census_msa 
+  K {'MSA, Not Principle  City': 23571, 'MSA, Principle City': 15669, 'Non-MSA': 14175} 
+  R {'MSA, Not Principle  City': 25033, 'MSA, Principle City': 16605, 'Non-MSA': 15018}
+household_adults 
+  K {0.0: 15999, 1.0: 29007, 2.0: 5673, 3.0: 2262, nan: 474} 
+  R {0.0: 17067, 1.0: 30642, 2.0: 6035, 3.0: 2406, nan: 506}
+household_children 
+  K {0.0: 37243, 1.0: 6403, 2.0: 5744, 3.0: 3551, nan: 474} 
+  R {0.0: 39595, 1.0: 6741, 2.0: 6044, 3.0: 3770, nan: 506}
+labels missing in rebuild: 281 222

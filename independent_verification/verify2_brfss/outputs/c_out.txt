@@ -1,0 +1,103 @@
+with_nans rows 445132 no_nans rows 246022 raw rows 445132
+  State NaN 0 min Alabama max Wyoming
+  Sex NaN 0 {'Female': np.int64(235893), 'Male': np.int64(209239)}
+  GeneralHealth NaN 1198 {'Very good': np.int64(148444), 'Good': np.int64(143598), 'Excellent': np.int64(71878), 'Fair': np.int64(60273), 'Poor': np.int64(19741), nan: np.int64(1198)}
+  PhysicalHealthDays NaN 10927 min 0.0 max 30.0
+  MentalHealthDays NaN 9067 min 0.0 max 30.0
+  LastCheckupTime NaN 8308 {'Within past year (anytime less than 12 months ago)': np.int64(350944), 'Within past 2 years (1 year but less than 2 years ago)': np.int64(41919), 'Within past 5 years (2 years but less than 5 years ago)': np.int64(24882), '5 or more years ago': np.int64(19079), nan: np.int64(8308)}
+  PhysicalActivities NaN 1093 {'Yes': np.int64(337559), 'No': np.int64(106480), nan: np.int64(1093)}
+  SleepHours NaN 5453 min 1.0 max 24.0
+  RemovedTeeth NaN 11360 {'None of them': np.int64(233455), '1 to 5': np.int64(129294), '6 or more, but not all': np.int64(45570), 'All': np.int64(25453), nan: np.int64(11360)}
+  HadHeartAttack NaN 3065 {'No': np.int64(416959), 'Yes': np.int64(25108), nan: np.int64(3065)}
+  HadAngina NaN 4405 {'No': np.int64(414176), 'Yes': np.int64(26551), nan: np.int64(4405)}
+  HadStroke NaN 1557 {'No': np.int64(424336), 'Yes': np.int64(19239), nan: np.int64(1557)}
+  HadAsthma NaN 1773 {'No': np.int64(376665), 'Yes': np.int64(66694), nan: np.int64(1773)}
+  HadSkinCancer NaN 3143 {'No': np.int64(406504), 'Yes': np.int64(35485), nan: np.int64(3143)}
+  HadCOPD NaN 2219 {'No': np.int64(407257), 'Yes': np.int64(35656), nan: np.int64(2219)}
+  HadDepressiveDisorder NaN 2812 {'No': np.int64(350910), 'Yes': np.int64(91410), nan: np.int64(2812)}
+  HadKidneyDisease NaN 1926 {'No': np.int64(422891), 'Yes': np.int64(20315), nan: np.int64(1926)}
+  HadArthritis NaN 2633 {'No': np.int64(291351), 'Yes': np.int64(151148), nan: np.int64(2633)}
+  HadDiabetes NaN 1087 {'No': np.int64(368722), 'Yes': np.int64(61158), 'No, pre-diabetes or borderline diabetes': np.int64(10329), 'Yes, but only during pregnancy (female)': np.int64(3836), nan: np.int64(1087)}
+  DeafOrHardOfHearing NaN 20647 {'No': np.int64(385539), 'Yes': np.int64(38946), nan: np.int64(20647)}
+  BlindOrVisionDifficulty NaN 21564 {'No': np.int64(399910), 'Yes': np.int64(23658), nan: np.int64(21564)}
+  DifficultyConcentrating NaN 24240 {'No': np.int64(370792), 'Yes': np.int64(50100), nan: np.int64(24240)}
+  DifficultyWalking NaN 24012 {'No': np.int64(353039), 'Yes': np.int64(68081), nan: np.int64(24012)}
+  DifficultyDressingBathing NaN 23915 {'No': np.int64(404404), nan: np.int64(23915), 'Yes': np.int64(16813)}
+  DifficultyErrands NaN 25656 {'No': np.int64(387029), 'Yes': np.int64(32447), nan: np.int64(25656)}
+  SmokerStatus NaN 35462 {'Never smoked': np.int64(245955), 'Former smoker': np.int64(113774), 'Current smoker - now smokes every day': np.int64(36003), nan: np.int64(35462), 'Current smoker - now smokes some days': np.int64(13938)}
+  ECigaretteUsage NaN 35660 {'Never used e-cigarettes in my entire life': np.int64(311988), 'Not at all (right now)': np.int64(75368), nan: np.int64(35660), 'Use them some days': np.int64(11734), 'Use them every day': np.int64(10382)}
+  ChestScan NaN 56046 {'No': np.int64(223221), 'Yes': np.int64(165865), nan: np.int64(56046)}
+  RaceEthnicityCategory NaN 14057 {'White only, Non-Hispanic': np.int64(320421), 'Hispanic': np.int64(42917), 'Black only, Non-Hispanic': np.int64(35446), 'Other race only, Non-Hispanic': np.int64(22713), nan: np.int64(14057), 'Multiracial, Non-Hispanic': np.int64(9578)}
+  AgeCategory NaN 9079 {'Age 65 to 69': np.int64(47099), 'Age 60 to 64': np.int64(44511), 'Age 70 to 74': np.int64(43472), 'Age 55 to 59': np.int64(36821), 'Age 80 or older': np.int64(36251), 'Age 50 to 54': np.int64(33644), 'Age 75 to 79': np.int64(32518), 'Age 40 to 44': np.int64(29942), 'Age 45 to 49': np.int64(28531)}
+  HeightInMeters NaN 28652 min 0.91 max 2.41
+  WeightInKilograms NaN 42078 min 22.68 max 292.57
+  BMI NaN 48806 min 12.02 max 99.64
+  AlcoholDrinkers NaN 46574 {'Yes': np.int64(210891), 'No': np.int64(187667), nan: np.int64(46574)}
+  HIVTesting NaN 66127 {'No': np.int64(249919), 'Yes': np.int64(129086), nan: np.int64(66127)}
+  FluVaxLast12 NaN 47121 {'Yes': np.int64(209256), 'No': np.int64(188755), nan: np.int64(47121)}
+  PneumoVaxEver NaN 77040 {'No': np.int64(215604), 'Yes': np.int64(152488), nan: np.int64(77040)}
+  TetanusLast10Tdap NaN 82516 {'No, did not receive any tetanus shot in the past 10 years': np.int64(121493), 'Yes, received tetanus shot but not sure what type': np.int64(113725), 'Yes, received Tdap': np.int64(99943), nan: np.int64(82516), 'Yes, received tetanus shot, but not Tdap': np.int64(27455)}
+  HighRiskLastYear NaN 50623 {'No': np.int64(377324), nan: np.int64(50623), 'Yes': np.int64(17185)}
+  CovidPos NaN 50764 {'No': np.int64(270055), 'Yes': np.int64(110877), nan: np.int64(50764), 'Tested positive using home test without a health professional': np.int64(13436)}
+
+row counts equal (raw vs with_nans): True
+ map Sex<-SEXVAR: {1.0: 'Male', 2.0: 'Female'}
+ map GeneralHealth<-GENHLTH: {-1.0: '<NaN>', 1.0: 'Excellent', 2.0: 'Very good', 3.0: 'Good', 4.0: 'Fair', 5.0: 'Poor', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map LastCheckupTime<-CHECKUP1: {-1.0: '<NaN>', 1.0: 'Within past year (anytime less than 12 months ago)', 2.0: 'Within past 2 years (1 year but less than 2 years ago)', 3.0: 'Within past 5 years (2 years but less than 5 years ago)', 4.0: '5 or more years ago', 7.0: '<NaN>', 8.0: '<NaN>', 9.0: '<NaN>'}
+ map PhysicalActivities<-EXERANY2: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map RemovedTeeth<-RMVTETH4: {-1.0: '<NaN>', 1.0: '1 to 5', 2.0: '6 or more, but not all', 3.0: 'All', 7.0: '<NaN>', 8.0: 'None of them', 9.0: '<NaN>'}
+ map HadHeartAttack<-CVDINFR4: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadAngina<-CVDCRHD4: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadStroke<-CVDSTRK3: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadAsthma<-ASTHMA3: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadSkinCancer<-CHCSCNC1: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadCOPD<-CHCCOPD3: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadDepressiveDisorder<-ADDEPEV3: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadKidneyDisease<-CHCKDNY2: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadArthritis<-HAVARTH4: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HadDiabetes<-DIABETE4: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'Yes, but only during pregnancy (female)', 3.0: 'No', 4.0: 'No, pre-diabetes or borderline diabetes', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map DeafOrHardOfHearing<-DEAF: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map BlindOrVisionDifficulty<-BLIND: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map DifficultyConcentrating<-DECIDE: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map DifficultyWalking<-DIFFWALK: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map DifficultyDressingBathing<-DIFFDRES: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map DifficultyErrands<-DIFFALON: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map SmokerStatus<-_SMOKER3: {1.0: 'Current smoker - now smokes every day', 2.0: 'Current smoker - now smokes some days', 3.0: 'Former smoker', 4.0: 'Never smoked', 9.0: '<NaN>'}
+ map ECigaretteUsage<-ECIGNOW2: {-1.0: '<NaN>', 1.0: 'Never used e-cigarettes in my entire life', 2.0: 'Use them every day', 3.0: 'Use them some days', 4.0: 'Not at all (right now)', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map ChestScan<-LCSCTSC1: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map RaceEthnicityCategory<-_RACEGR4: {-1.0: '<NaN>', 1.0: 'White only, Non-Hispanic', 2.0: 'Black only, Non-Hispanic', 3.0: 'Other race only, Non-Hispanic', 4.0: 'Multiracial, Non-Hispanic', 5.0: 'Hispanic', 9.0: '<NaN>'}
+ map AgeCategory<-_AGEG5YR: {1.0: 'Age 18 to 24', 2.0: 'Age 25 to 29', 3.0: 'Age 30 to 34', 4.0: 'Age 35 to 39', 5.0: 'Age 40 to 44', 6.0: 'Age 45 to 49', 7.0: 'Age 50 to 54', 8.0: 'Age 55 to 59', 9.0: 'Age 60 to 64', 10.0: 'Age 65 to 69', 11.0: 'Age 70 to 74', 12.0: 'Age 75 to 79', 13.0: 'Age 80 or older', 14.0: '<NaN>'}
+ map AlcoholDrinkers<-DRNKANY6: {1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HIVTesting<-HIVTST7: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map FluVaxLast12<-FLUSHOT7: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map PneumoVaxEver<-PNEUVAC4: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map TetanusLast10Tdap<-TETANUS1: {-1.0: '<NaN>', 1.0: 'Yes, received Tdap', 2.0: 'Yes, received tetanus shot, but not Tdap', 3.0: 'Yes, received tetanus shot but not sure what type', 4.0: 'No, did not receive any tetanus shot in the past 10 years', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map HighRiskLastYear<-HIVRISK5: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 7.0: '<NaN>', 9.0: '<NaN>'}
+ map CovidPos<-COVIDPOS: {-1.0: '<NaN>', 1.0: 'Yes', 2.0: 'No', 3.0: 'Tested positive using home test without a health professional', 7.0: '<NaN>', 9.0: '<NaN>'}
+ State mapping purity min: 1.0
+
+Cell-level agreement, rebuilt vs with_nans (row-aligned):
+ all columns agree: True
+
+with_nans complete cases 246022 no_nans 246022
+ multiset match no_nans vs with_nans.dropna(): 1.0
+
+C. raw respondents with >=1 DK (7/77) on 33 raw source vars: 124631
+   with >=1 DK or refused (7/9/77/99): 167259
+   DK on raw vars OR derived 9/14 codes (_SMOKER3, _RACEGR4, _AGEG5YR): 165287
+ every DK cell is NaN in with_nans: True
+ DK respondents with a complete with_nans row (would be in no_nans): 0
+ DK-or-refused respondents with a complete row: 0
+
+Race: raw _RACEGR4 counts {1.0: np.int64(320421), 5.0: np.int64(42917), 2.0: np.int64(35446), 3.0: np.int64(22713), 9.0: np.int64(14055), 4.0: np.int64(9578), nan: np.int64(2)}
+ raw _RACEGR4 == 9 or NaN: 14057
+ with_nans RaceEthnicityCategory NaN: 14057
+ crosstab _RACEGR4 vs NaN-race: {False: {-1.0: 0, 1.0: 320421, 2.0: 35446, 3.0: 22713, 4.0: 9578, 5.0: 42917, 9.0: 0}, True: {-1.0: 2, 1.0: 0, 2.0: 0, 3.0: 0, 4.0: 0, 5.0: 0, 9.0: 14055}}
+ raw _RACE1 == 9: 14055 ; _IMPRACE counts {1.0: np.int64(333514), 5.0: np.int64(42977), 2.0: np.int64(35876), 3.0: np.int64(13487), 6.0: np.int64(12158), 4.0: np.int64(7120)}
+ rows with NaN race: _RACE1 counts {9.0: np.int64(14055), nan: np.int64(2)} _HISPANC {2.0: np.int64(8473), 9.0: np.int64(5584)}
+ rows with _RACEGR4==9 but race not NaN in file: {}
+ rows with race NaN but _RACEGR4 != 9: {nan: np.int64(2)}
+
+ no_nans (via with_nans complete cases) Other race only NH: 12205 ; no_nans file count: 12205
+ _RACE1 among them (3=AIAN,4=Asian,5=NHPI,6=Other race only): {4.0: np.int64(6813), 3.0: np.int64(3895), 5.0: np.int64(1497)}
+ _MRACE2 among them: {4.0: np.int64(6813), 3.0: np.int64(3895), 5.0: np.int64(1497)}

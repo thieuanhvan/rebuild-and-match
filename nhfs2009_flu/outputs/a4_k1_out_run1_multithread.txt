@@ -1,0 +1,22 @@
+T rows 26690 of train 26707 ; label agreement h1n1 1.0 seasonal 1.0
+
+== Q1 timing: features + INT_MONTH minus features ==
+Q1 | h1n1_vaccine | lr: AUC A 0.8603 B 0.8727 (split 0); median diff 0.013; range [0.0124, 0.0182]; CI [0.0086, 0.0161]; MATERIAL
+Q1 | h1n1_vaccine | lgb: AUC A 0.8696 B 0.8794 (split 0); median diff 0.0159; range [0.0087, 0.0162]; CI [0.0057, 0.0148]; MATERIAL
+Q1 | seasonal_vaccine | lr: AUC A 0.8562 B 0.8577 (split 0); median diff 0.0009; range [0.0005, 0.0017]; CI [0.0005, 0.0027]; not material
+Q1 | seasonal_vaccine | lgb: AUC A 0.8633 B 0.8652 (split 0); median diff 0.0008; range [-0.0009, 0.0018]; CI [0.0001, 0.0034]; not material
+
+== Q3 dont-know at the midpoint (LR): distributed minus DK as indicator, reported as B - A with B = DK indicator ==
+Q3 | h1n1_vaccine | lr: AUC A 0.856 B 0.8607 (split 0); median diff 0.0005; range [0.0002, 0.0047]; CI [0.001, 0.0081]; not material
+Q3 | seasonal_vaccine | lr: AUC A 0.8562 B 0.8564 (split 0); median diff 0.0005; range [0.0, 0.0008]; CI [-0.0003, 0.0009]; not material
+
+== Q2 odds ratios for h1n1_vaccine, adjusted for age and sex, without vs with INT_MONTH ==
+doctor_recc_h1n1 (n=24531): without month OR 7.2086 [6.7364, 7.714]; with month OR 7.421 [6.9111, 7.9685]; not material
+chronic_med_condition (n=25720): without month OR 1.5905 [1.4906, 1.6971]; with month OR 1.606 [1.501, 1.7183]; not material
+health_insurance (n=14421): without month OR 2.5125 [2.1831, 2.8916]; with month OR 2.5184 [2.1881, 2.8985]; not material
+
+== Q4 descriptive ==
+AUC predicting OCT-DEC 2009 interview from two missing indicators (in-sample): 0.9133
+share early 0.3291
+h1n1_vaccine unweighted 0.2124 weighted 0.1911
+seasonal_vaccine unweighted 0.4655 weighted 0.3922

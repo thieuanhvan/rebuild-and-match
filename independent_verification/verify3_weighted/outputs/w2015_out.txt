@@ -1,0 +1,27 @@
+raw rows 441456 ; weight NaN 0 strata NaN 0 psu NaN 0
+rebuild rows 253680 ; multiset match vs Kaggle 012 1.0 ; differing tuples 0
+
+DIABETE3 codes {1.0: np.int64(57256), 2.0: np.int64(3608), 3.0: np.int64(372104), 4.0: np.int64(7690), 7.0: np.int64(598), 9.0: np.int64(193), nan: np.int64(7)}
+valid diabetes answer (1-4): 440658 ; excluded for label: 798
+excluded by complete-case among valid: 186978
+complete-case rows 253680 share of raw 0.5746
+
+Weighted (weight _LLCPWT, strata _STSTR, PSU _PSU nested in strata; Taylor, with replacement)
+diabetes (DIABETE3=1), all valid respondents: n=440658 weighted p=0.105003 (trunc 0.105) SE domain=0.000869 (trunc 0.0008); strata 1306, singleton 0
+   subset-only design: p=0.105003 SE=0.000869 (trunc 0.0008); strata 1306, singleton 0
+diabetes (DIABETE3=1), complete-case population: n=253680 weighted p=0.122805 (trunc 0.1228) SE domain=0.001286 (trunc 0.0012); strata 1306, singleton 0
+   subset-only design: p=0.122805 SE=0.001285 (trunc 0.0012); strata 1304, singleton 4
+documented label (DIABETE3 in 1,4), all valid: n=440658 weighted p=0.120994 (trunc 0.1209) SE domain=0.000933 (trunc 0.0009); strata 1306, singleton 0
+   subset-only design: p=0.120994 SE=0.000933 (trunc 0.0009); strata 1306, singleton 0
+documented label (DIABETE3 in 1,4), complete-case population: n=253680 weighted p=0.140670 (trunc 0.1406) SE domain=0.001367 (trunc 0.0013); strata 1306, singleton 0
+   subset-only design: p=0.140670 SE=0.001366 (trunc 0.0013); strata 1304, singleton 4
+check: complete-case DIABETE3=1 count 35346 ; =4 count 4631 ; =2 count 1978
+
+Kaggle files
+ 012: rows 253680, exact duplicate rows beyond first 23899, share 0.0942
+ binary: rows 253680, exact duplicate rows beyond first 24206, share 0.0954
+ 5050: rows 70692, exact duplicate rows beyond first 1635, share 0.0231
+ binary class 1: 35346 unweighted rate 0.1393
+ rebuild duplicates (012 coding): 23899
+ 24206/253680 = 0.09541942604856513 -> trunc 0.0954
+ 440658-253680 = 186978

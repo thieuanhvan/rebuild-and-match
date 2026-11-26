@@ -1,0 +1,11 @@
+Task 1: raw records = 70944; SUBGROUP (col 20) A = 56656 adults, C = 14288 children
+Task 3: published rows (train 26707 + test 26708) = 53415; matched (min-count multiset, 32 columns) = 53415; rate = 1.0000
+Task 3b: training rows with 2 labels appended = 26707; matched = 26707; rate = 1.0000
+Task 4: adults = 56656; adults not consumed = 3241; adults with >=1 missing label (raw) = 430
+  rule: in each feature-tuple group, published rows consume adults with both labels valid first
+  absent with >=1 missing label = 430; absent with both labels present = 2811
+  bounds over any within-group assignment: missing-label absent in [429, 430]
+  published rows not matched to any adult = 0
+Task 5: published training unweighted means: h1n1_vaccine = 0.2124, seasonal_vaccine = 0.4656
+  FLUWT-weighted H1N1 prevalence, adults with valid VACC_H1N1_F (n=56375) = 0.1927; unweighted = 0.2133
+  FLUWT-weighted seasonal prevalence, adults with valid VACC_SEAS_F (n=56434) = 0.3922; unweighted = 0.4665

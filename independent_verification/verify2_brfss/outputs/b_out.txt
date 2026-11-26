@@ -1,0 +1,64 @@
+Kaggle 2020 rows 319795
+  HeartDisease 2 {'No': np.int64(292422), 'Yes': np.int64(27373)}
+  BMI 3604 min 12.02 max 94.85
+  Smoking 2 {'No': np.int64(187887), 'Yes': np.int64(131908)}
+  AlcoholDrinking 2 {'No': np.int64(298018), 'Yes': np.int64(21777)}
+  Stroke 2 {'No': np.int64(307726), 'Yes': np.int64(12069)}
+  PhysicalHealth 31 min 0.0 max 30.0
+  MentalHealth 31 min 0.0 max 30.0
+  DiffWalking 2 {'No': np.int64(275385), 'Yes': np.int64(44410)}
+  Sex 2 {'Female': np.int64(167805), 'Male': np.int64(151990)}
+  AgeCategory 13 {'65-69': np.int64(34151), '60-64': np.int64(33686), '70-74': np.int64(31065), '55-59': np.int64(29757), '50-54': np.int64(25382), '80 or older': np.int64(24153), '45-49': np.int64(21791), '75-79': np.int64(21482)}
+  Race 6 {'White': np.int64(245212), 'Hispanic': np.int64(27446), 'Black': np.int64(22939), 'Other': np.int64(10928), 'Asian': np.int64(8068), 'American Indian/Alaskan Native': np.int64(5202)}
+  Diabetic 4 {'No': np.int64(269653), 'Yes': np.int64(40802), 'No, borderline diabetes': np.int64(6781), 'Yes (during pregnancy)': np.int64(2559)}
+  PhysicalActivity 2 {'Yes': np.int64(247957), 'No': np.int64(71838)}
+  GenHealth 5 {'Very good': np.int64(113858), 'Good': np.int64(93129), 'Excellent': np.int64(66842), 'Fair': np.int64(34677), 'Poor': np.int64(11289)}
+  SleepTime 24 min 1.0 max 24.0
+  Asthma 2 {'No': np.int64(276923), 'Yes': np.int64(42872)}
+  KidneyDisease 2 {'No': np.int64(308016), 'Yes': np.int64(11779)}
+  SkinCancer 2 {'No': np.int64(289976), 'Yes': np.int64(29819)}
+raw rows 401958
+ raw _STATE NaN 0 min 1.0 max 72.0
+ raw _MICHD NaN 3571 {2.0: np.int64(364224), 1.0: np.int64(34163)}
+ raw CVDINFR4 NaN 6 {2.0: np.int64(377918), 1.0: np.int64(21957), 7.0: np.int64(1761), 9.0: np.int64(316)}
+ raw CVDCRHD4 NaN 3 {2.0: np.int64(376058), 1.0: np.int64(22598), 7.0: np.int64(2962), 9.0: np.int64(337)}
+ raw _BMI5 NaN 41357 min 1202.0 max 9843.0
+ raw SMOKE100 NaN 17860 {2.0: np.int64(224535), 1.0: np.int64(156750), 7.0: np.int64(2178), 9.0: np.int64(635)}
+ raw _RFDRHV7 NaN 0 {1.0: np.int64(347309), 9.0: np.int64(30691), 2.0: np.int64(23958)}
+ raw CVDSTRK3 NaN 3 {2.0: np.int64(385095), 1.0: np.int64(15677), 7.0: np.int64(891), 9.0: np.int64(292)}
+ raw PHYSHLTH NaN 5 min 1.0 max 99.0
+ raw MENTHLTH NaN 5 min 1.0 max 99.0
+ raw DIFFWALK NaN 15280 {2.0: np.int64(327864), 1.0: np.int64(57335), 7.0: np.int64(1000), 9.0: np.int64(479)}
+ raw SEXVAR NaN 0 {2.0: np.int64(218016), 1.0: np.int64(183942)}
+ raw _SEX NaN 0 {2.0: np.int64(218027), 1.0: np.int64(183931)}
+ raw _AGEG5YR NaN 0 {10.0: np.int64(41570), 9.0: np.int64(41151), 11.0: np.int64(37972), 8.0: np.int64(36219), 13.0: np.int64(31456), 7.0: np.int64(31110), 12.0: np.int64(26607), 6.0: np.int64(26428), 5.0: np.int64(25729), 1.0: np.int64(25648)}
+ raw _RACE NaN 1 {1.0: np.int64(295900), 8.0: np.int64(36322), 2.0: np.int64(30130), 4.0: np.int64(10138), 9.0: np.int64(8987), 7.0: np.int64(8314), 3.0: np.int64(6813), 6.0: np.int64(3344), 5.0: np.int64(2009)}
+ raw _IMPRACE NaN 0 {1.0: np.int64(303886), 5.0: np.int64(36408), 2.0: np.int64(30390), 6.0: np.int64(14077), 3.0: np.int64(10243), 4.0: np.int64(6954)}
+ raw _RACEGR3 NaN 1 {1.0: np.int64(295900), 5.0: np.int64(36322), 2.0: np.int64(30130), 3.0: np.int64(22304), 9.0: np.int64(8987), 4.0: np.int64(8314)}
+ raw _RACEG21 NaN 1 {1.0: np.int64(295900), 2.0: np.int64(97070), 9.0: np.int64(8987)}
+ raw _MRACE1 NaN 9 {1.0: np.int64(316258), 2.0: np.int64(32029), 6.0: np.int64(11911), 4.0: np.int64(10442), 7.0: np.int64(9465), 3.0: np.int64(8104), 99.0: np.int64(7068), 77.0: np.int64(4351), 5.0: np.int64(2321)}
+ raw _HISPANC NaN 0 {2.0: np.int64(360696), 1.0: np.int64(36322), 9.0: np.int64(4940)}
+ raw _PRACE1 NaN 9 {1.0: np.int64(320045), 2.0: np.int64(33271), 6.0: np.int64(12511), 4.0: np.int64(11248), 3.0: np.int64(8972), 99.0: np.int64(7068), 77.0: np.int64(4351), 5.0: np.int64(3239), 7.0: np.int64(1242), 8.0: np.int64(2)}
+ raw DIABETE4 NaN 6 {3.0: np.int64(337064), 1.0: np.int64(52094), 4.0: np.int64(8612), 2.0: np.int64(3374), 7.0: np.int64(488), 9.0: np.int64(320)}
+ raw EXERANY2 NaN 3 {1.0: np.int64(305883), 2.0: np.int64(95393), 7.0: np.int64(451), 9.0: np.int64(228)}
+ raw _TOTINDA NaN 0 {1.0: np.int64(305883), 2.0: np.int64(95393), 9.0: np.int64(682)}
+ raw GENHLTH NaN 8 {2.0: np.int64(138139), 3.0: np.int64(119502), 1.0: np.int64(81660), 4.0: np.int64(46239), 5.0: np.int64(15457), 7.0: np.int64(650), 9.0: np.int64(303)}
+ raw SLEPTIM1 NaN 3 {8.0: np.int64(122257), 7.0: np.int64(118786), 6.0: np.int64(82622), 5.0: np.int64(24431), 9.0: np.int64(19836), 4.0: np.int64(9985), 10.0: np.int64(9982), 77.0: np.int64(4110), 12.0: np.int64(2865), 3.0: np.int64(2680)}
+ raw ASTHMA3 NaN 3 {2.0: np.int64(346449), 1.0: np.int64(54142), 7.0: np.int64(1067), 9.0: np.int64(297)}
+ raw CHCKDNY2 NaN 6 {2.0: np.int64(385427), 1.0: np.int64(15015), 7.0: np.int64(1186), 9.0: np.int64(324)}
+ raw CHCSCNCR NaN 3 {2.0: np.int64(364269), 1.0: np.int64(36414), 7.0: np.int64(976), 9.0: np.int64(296)}
+
+rebuilt rows 319795 vs Kaggle 319795
+multiset match 1.0 tuples differing 0
+
+B. HeartDisease == _MICHD by construction; Kaggle HeartDisease Yes 27373 rebuild Yes 27373
+ rebuild HD=Yes CVDINFR4 value counts {1.0: np.int64(17499), 2.0: np.int64(9675), 7.0: np.int64(192), 9.0: np.int64(6), nan: np.int64(1)}
+ HD=Yes with CVDINFR4 != 1: 9874 / 27373 = 0.3607
+ HD=Yes with CVDINFR4 == 2 (explicit no MI): 9675
+ _MICHD definition check (raw): _MICHD==1 iff CVDINFR4==1 or CVDCRHD4==1: {False: {-1.0: 3571, 1.0: 0, 2.0: 364224}, True: {-1.0: 0, 1.0: 34163, 2.0: 0}}
+ raw level: _MICHD==1 34163 CVDINFR4!=1 among them 12206
+
+D. 2020 race
+ rebuild _RACE value counts {1.0: np.int64(241215), 8.0: np.int64(27404), 2.0: np.int64(22829), 4.0: np.int64(8009), 7.0: np.int64(6710), 3.0: np.int64(5125), 9.0: np.int64(4510), 6.0: np.int64(2326), 5.0: np.int64(1667)}
+ rebuild rows with _RACE==9: 4510 imputed race counts {'White': np.int64(3997), 'Other': np.int64(225), 'Black': np.int64(110), 'American Indian/Alaskan Native': np.int64(77), 'Asian': np.int64(59), 'Hispanic': np.int64(42)}
+ raw rows _RACE==9: 8987 ; raw _IMPRACE among them {1.0: np.int64(7986), 6.0: np.int64(410), 2.0: np.int64(259), 4.0: np.int64(141), 3.0: np.int64(105), 5.0: np.int64(86)}

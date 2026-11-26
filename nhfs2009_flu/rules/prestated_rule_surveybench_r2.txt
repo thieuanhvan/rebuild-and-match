@@ -1,0 +1,40 @@
+SURVEY-DERIVED BENCHMARK HUNT, ROUND 2 (26/11/2026) - PRE-STATED RULE
+Written after reading the dataset pages and discussion forums, BEFORE any literature search, download, rebuild or count.
+
+Candidates (Kaggle searches "NHANES", "National Health Interview Survey", "smoking drinking body signal", sorted by votes; plus known benchmark):
+ K1  DrivenData "Flu Shot Learning: Predict H1N1 and Seasonal Flu Vaccines" (competition 66, launched 2020; practice competition,
+     still open; Kaggle mirrors). Source: National 2009 H1N1 Flu Survey (NHFS, NCHS/CDC; public-use DAT file, codebook,
+     questionnaire on cdc.gov/nchs/nis/data_files_h1n1.htm, no login). Train 26,707 rows (respondent_id 0..26706), test from 26,707.
+     35 features, two labels h1n1_vaccine, seasonal_vaccine. Page facts: opinion items coded 1-5 with "Don't know" = 3 (middle of
+     the scale); hhs_geo_region, employment_industry, employment_occupation scrambled to random strings; household counts top-coded to 3.
+     Forum (community.drivendata.org, 13 topics read 26/11): known points = scrambled region/industry/occupation codes (5921, 9026),
+     nulls in employment columns (5997), education categories (5506). No post on interview timing, on "Don't know" at the scale
+     midpoint, on weights, or on rebuilding from NHFS.
+ K2  sooyoungher/smoking-drinking-dataset (Korean NHIS health screening, 991K rows, 38 notebooks). Raw source is a Korean public
+     portal (possible login); pursued only if K1 dies and the raw file downloads without login.
+ Not taken: CDC NHANES raw mirrors (not a derived benchmark); small NHANES subsets (< 10 notebooks); synthetic sleep/patient files;
+     aggregate CDC tables; UCI 887 (killed I361).
+
+Hypotheses written now (to separate pre-stated from found):
+ h1 Label timing: H1N1 vaccine became available in October 2009 and interviews ran from late 2009 into 2010; the interview month is not
+    in the file, so early respondents may be structurally negative (label depends on an absent time variable).
+ h2 "Don't know" is placed at the midpoint (3) of the five-point opinion scales, so a user who treats them as ordinal or numeric (the
+    usual practice) mixes non-response into the middle category.
+ h3 Design variables (weights, strata) dropped; respondent selection (adults only? interview completeness?) undocumented.
+ h4 Other recodes found in the rebuild (e.g., doctor recommendation asked only of a subset; "refused" handling; top-coding).
+
+ALIVE as a P9 addition or separate paper requires ALL of:
+ A1 Reach: >= 5 published papers (Europe PMC / Crossref / arXiv) that use the file, OR >= 50 public notebooks/solutions.
+ A2 Rebuild: rows rebuilt from the NHFS public-use file with multiset (or ID-linked) match >= 0.99, OR the exact step that cannot be
+    reproduced is shown.
+ A3 >= 2 undocumented construction decisions verified against raw data, >= 1 changing the label or the meaning of a feature, and >= 1
+    in a defect class NOT already in P9. P9 classes (after round 1): label recode vs documentation; dropped design variables;
+    complete-case deletion of valid answers; outcome/feature drift across versions; imputed race; unit-conversion arithmetic error;
+    undocumented outlier cap; exclusion on variables absent from the file. Known forum points count only as cited.
+ A4 Consequence (only if A1-A3 pass): P9 AUC rule (median paired difference >= 0.01, beyond seed range, bootstrap CI excludes 0) or an
+    effect estimate beyond its CI.
+KILL if: a paper/preprint/notebook/post already rebuilds the file from NHFS and reports the same defects; or A1 fails; or only P9 classes.
+NARROW if A1-A3 pass and A4 fails (P9 paragraph at most; decide with the student).
+Budget: student's quota for today ends at about 40-45% of the week; stop at the first KILL.
+Order: literature/reach search -> download NHFS (CDC, public) -> student downloads DrivenData/Kaggle train files (login) -> rebuild ->
+ two blind screeners -> verdict.

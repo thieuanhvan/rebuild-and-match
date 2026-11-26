@@ -1,0 +1,30 @@
+== 2020 file ==
+HeartDisease=Yes 27373 | MI only 9089 | CHD/angina only (no MI) 9874 | both 8410
+share of positives without MI 0.3607
+weighted vs unweighted HeartDisease prevalence h 0.0786
+duplicate rows (distinct respondents, distinct SEQNO/state): 18078 share 0.0565 | HeartDisease=Yes among duplicates 112
+Race imputed rows 4510 Other pooled: NHPI 1667 other 2326 multiracial 6710
+== 2022 no_nans file ==
+HadAngina=Yes | MI=Yes 6772 / 13435 0.504 | MI=No 8181 / 232587 0.0351 | Cohen h 1.2015
+ ChestScan Yes | MI=Yes 0.7684 | MI=No 0.4036 | Cohen h 0.7607
+ HadStroke Yes | MI=Yes 0.1874 | MI=No 0.0326 | Cohen h 0.532
+ DifficultyWalking Yes | MI=Yes 0.3819 | MI=No 0.133 | Cohen h 0.5857
+ HadDiabetes Yes | MI=Yes 0.3505 | MI=No 0.1336 | Cohen h 0.5187
+2020-definition positives (_MICHD=1) in no_nans 21616 | of which HadHeartAttack=No (angina/CHD only) 8181 share 0.3784
+'Other race only, Non-Hispanic' composition (raw _RACE1): {4.0: 6813, 3.0: 3895, 5.0: 1497} (3 AIAN, 4 Asian, 5 NHPI)
+race DK/refused respondents dropped (RaceEthnicityCategory NaN) 14057 | would be imputed in 2020-style _IMPRACE
+                 n  kept_unw  kept_w
+_RACE1                              
+1.0    320421.0000    0.5815  0.5618
+2.0     35446.0000    0.5453  0.5374
+3.0      6952.0000    0.5602  0.5373
+4.0     13347.0000    0.5104  0.4440
+5.0      2414.0000    0.6201  0.4593
+7.0      9578.0000    0.5826  0.5404
+8.0     42917.0000    0.5258  0.4938
+Cohen h retained share across reported race groups (max-min): unweighted 0.2217 weighted 0.2361
+age 13 vs age 8 retained (weighted) 0.2368 | age max-min weighted 0.2471
+never-checkup respondents 2509 all dropped from no_nans: True | weighted share of adults 0.0082
+ respondents with a DK/never answer: n 89232 age>=65 share 0.3438 MI unweighted 0.0521 MI weighted 0.0375
+ respondents without: n 355900 age>=65 share 0.3708 MI unweighted 0.0583 MI weighted 0.0461
+ Cohen h MI prevalence DK vs non-DK (unweighted) 0.0269
